@@ -1,0 +1,282 @@
+# running on K40
+
+--- Start a test: T=f IndexType=i 40 1 4 100
+== Test with cpu-sorting
+Time for sort is 2.9e-05 0.0029
+== Test with impl_tf, auto-shard is 5
+Time for tf-0 is 0.000602/0.005374
+error
+== Test with impl_tr
+Time for tr is 0.001451/0.005701
+
+--- Start a test: T=f IndexType=i 50000 80 1 100
+== Test with cpu-sorting
+Time for sort is 2.03037 203.037
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000623/0.077323
+Time for tf-64 is 0.000591/0.058751
+Time for tf-128 is 0.000578/0.03483
+Time for tf-256 is 0.000598/0.026124
+Time for tf-512 is 0.000585/0.0416
+== Test with impl_tr
+Time for tr is 0.000768/0.524444
+
+--- Start a test: T=f IndexType=i 50000 80 2 100
+== Test with cpu-sorting
+Time for sort is 2.00921 200.921
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000711/0.089231
+Time for tf-64 is 0.00065/0.067316
+Time for tf-128 is 0.000661/0.042771
+Time for tf-256 is 0.000649/0.033116
+Time for tf-512 is 0.000637/0.05166
+== Test with impl_tr
+Time for tr is 0.001022/0.545034
+
+--- Start a test: T=f IndexType=i 50000 80 4 100
+== Test with cpu-sorting
+Time for sort is 2.04268 204.268
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000667/0.194371
+Time for tf-64 is 0.000606/0.08936
+Time for tf-128 is 0.000587/0.059137
+Time for tf-256 is 0.000568/0.078749
+Time for tf-512 is 0.000646/0.09567
+== Test with impl_tr
+Time for tr is 0.000898/0.536141
+
+--- Start a test: T=f IndexType=i 50000 80 8 100
+== Test with cpu-sorting
+Time for sort is 2.029 202.9
+== Test with impl_tf, auto-shard is 767
+Time for tf-0 is 0.000715/0.247023
+Time for tf-64 is 0.000662/0.128063
+Time for tf-128 is 0.000651/0.162059
+Time for tf-256 is 0.000651/0.168761
+Time for tf-512 is 0.000654/0.248201
+== Test with impl_tr
+Time for tr is 0.00077/0.528694
+
+--- Start a test: T=f IndexType=i 50000 80 12 100
+== Test with cpu-sorting
+Time for sort is 1.98056 198.056
+== Test with impl_tf, auto-shard is 511
+Time for tf-0 is 0.000683/0.320314
+Time for tf-64 is 0.000588/0.165142
+Time for tf-128 is 0.000601/0.209875
+Time for tf-256 is 0.000623/0.403793
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000833/0.545136
+
+--- Start a test: T=f IndexType=l 40 1 4 100
+== Test with cpu-sorting
+Time for sort is 4.2e-05 0.0042
+== Test with impl_tf, auto-shard is 5
+Time for tf-0 is 0.000601/0.00621
+error
+== Test with impl_tr
+Time for tr is 0.000718/0.005922
+
+--- Start a test: T=f IndexType=l 50000 80 1 100
+== Test with cpu-sorting
+Time for sort is 2.03388 203.388
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000592/0.087526
+Time for tf-64 is 0.000569/0.061344
+Time for tf-128 is 0.000571/0.03704
+Time for tf-256 is 0.000561/0.027932
+Time for tf-512 is 0.000566/0.045734
+== Test with impl_tr
+Time for tr is 0.000778/0.545506
+
+--- Start a test: T=f IndexType=l 50000 80 2 100
+== Test with cpu-sorting
+Time for sort is 2.03655 203.655
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000618/0.192299
+Time for tf-64 is 0.000595/0.074839
+Time for tf-128 is 0.000583/0.047896
+Time for tf-256 is 0.00057/0.063776
+Time for tf-512 is 0.000589/0.083962
+== Test with impl_tr
+Time for tr is 0.000804/0.535721
+
+--- Start a test: T=f IndexType=l 50000 80 4 100
+== Test with cpu-sorting
+Time for sort is 2.01503 201.502
+== Test with impl_tf, auto-shard is 767
+Time for tf-0 is 0.000644/0.231312
+Time for tf-64 is 0.00061/0.104654
+Time for tf-128 is 0.000625/0.12984
+Time for tf-256 is 0.000615/0.141831
+Time for tf-512 is 0.000581/0.226224
+== Test with impl_tr
+Time for tr is 0.000744/0.545873
+
+--- Start a test: T=f IndexType=l 50000 80 8 100
+== Test with cpu-sorting
+Time for sort is 2.01447 201.447
+== Test with impl_tf, auto-shard is 383
+Time for tf-0 is 0.000622/0.365954
+Time for tf-64 is 0.000597/0.292813
+Time for tf-128 is 0.000609/0.306601
+Time for tf-256 is 0.000614/0.423912
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000739/0.547811
+
+--- Start a test: T=f IndexType=l 50000 80 12 100
+== Test with cpu-sorting
+Time for sort is 2.01412 201.412
+== Test with impl_tf, auto-shard is 255
+Time for tf-0 is 0.000699/0.562751
+Time for tf-64 is 0.000627/0.403678
+Time for tf-128 is 0.000652/0.791999
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000754/0.525464
+
+--- Start a test: T=d IndexType=i 40 1 4 100
+== Test with cpu-sorting
+Time for sort is 3.6e-05 0.0036
+== Test with impl_tf, auto-shard is 5
+Time for tf-0 is 0.000598/0.005281
+error
+== Test with impl_tr
+Time for tr is 0.000678/0.006904
+
+--- Start a test: T=d IndexType=i 50000 80 1 100
+== Test with cpu-sorting
+Time for sort is 1.97904 197.904
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000593/0.079445
+Time for tf-64 is 0.000557/0.057512
+Time for tf-128 is 0.000572/0.036154
+Time for tf-256 is 0.000562/0.030258
+Time for tf-512 is 0.000587/0.04485
+== Test with impl_tr
+Time for tr is 0.000783/0.693689
+
+--- Start a test: T=d IndexType=i 50000 80 2 100
+== Test with cpu-sorting
+Time for sort is 1.99793 199.793
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000621/0.163191
+Time for tf-64 is 0.000585/0.0674
+Time for tf-128 is 0.000583/0.044152
+Time for tf-256 is 0.000591/0.057718
+Time for tf-512 is 0.000587/0.072499
+== Test with impl_tr
+Time for tr is 0.000731/0.723247
+
+--- Start a test: T=d IndexType=i 50000 80 4 100
+== Test with cpu-sorting
+Time for sort is 2.00941 200.941
+== Test with impl_tf, auto-shard is 767
+Time for tf-0 is 0.000613/0.192149
+Time for tf-64 is 0.000619/0.090526
+Time for tf-128 is 0.000579/0.110675
+Time for tf-256 is 0.000577/0.118405
+Time for tf-512 is 0.000582/0.187447
+== Test with impl_tr
+Time for tr is 0.000746/0.712146
+
+--- Start a test: T=d IndexType=i 50000 80 8 100
+== Test with cpu-sorting
+Time for sort is 1.99728 199.728
+== Test with impl_tf, auto-shard is 383
+Time for tf-0 is 0.000612/0.300575
+Time for tf-64 is 0.000653/0.247276
+Time for tf-128 is 0.000603/0.251645
+Time for tf-256 is 0.000601/0.341967
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000716/0.70247
+
+--- Start a test: T=d IndexType=i 50000 80 12 100
+== Test with cpu-sorting
+Time for sort is 1.98406 198.406
+== Test with impl_tf, auto-shard is 255
+Time for tf-0 is 0.00061/0.455161
+Time for tf-64 is 0.000604/0.328672
+Time for tf-128 is 0.000651/0.639031
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000729/0.712088
+
+--- Start a test: T=d IndexType=l 40 1 4 100
+== Test with cpu-sorting
+Time for sort is 3.7e-05 0.0037
+== Test with impl_tf, auto-shard is 5
+Time for tf-0 is 0.000558/0.005669
+error
+== Test with impl_tr
+Time for tr is 0.000646/0.006992
+
+--- Start a test: T=d IndexType=l 50000 80 1 100
+== Test with cpu-sorting
+Time for sort is 2.03293 203.293
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000602/0.088808
+Time for tf-64 is 0.00056/0.059684
+Time for tf-128 is 0.000563/0.037542
+Time for tf-256 is 0.000535/0.031369
+Time for tf-512 is 0.000579/0.048826
+== Test with impl_tr
+Time for tr is 0.000744/0.818457
+
+--- Start a test: T=d IndexType=l 50000 80 2 100
+== Test with cpu-sorting
+Time for sort is 2.03198 203.198
+== Test with impl_tf, auto-shard is 1024
+Time for tf-0 is 0.000603/0.185399
+Time for tf-64 is 0.000577/0.071847
+Time for tf-128 is 0.000568/0.04681
+Time for tf-256 is 0.000561/0.062574
+Time for tf-512 is 0.000585/0.080556
+== Test with impl_tr
+Time for tr is 0.000725/0.839407
+
+--- Start a test: T=d IndexType=l 50000 80 4 100
+== Test with cpu-sorting
+Time for sort is 2.0587 205.87
+== Test with impl_tf, auto-shard is 767
+Time for tf-0 is 0.000577/0.216404
+Time for tf-64 is 0.000576/0.0969
+Time for tf-128 is 0.000587/0.122984
+Time for tf-256 is 0.000589/0.132453
+Time for tf-512 is 0.000638/0.210464
+== Test with impl_tr
+Time for tr is 0.000729/0.831666
+
+--- Start a test: T=d IndexType=l 50000 80 8 100
+== Test with cpu-sorting
+Time for sort is 2.04079 204.079
+== Test with impl_tf, auto-shard is 383
+Time for tf-0 is 0.000606/0.33446
+Time for tf-64 is 0.000605/0.274887
+Time for tf-128 is 0.000597/0.281055
+Time for tf-256 is 0.000593/0.384093
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.000755/0.830241
+
+--- Start a test: T=d IndexType=l 50000 80 12 100
+== Test with cpu-sorting
+Time for sort is 2.01481 201.481
+== Test with impl_tf, auto-shard is 255
+Time for tf-0 is 0.000619/0.507749
+Time for tf-64 is 0.000619/0.364264
+Time for tf-128 is 0.00064/0.716157
+CUDA failure in invalid argument
+error
+== Test with impl_tr
+Time for tr is 0.00078/0.837542
+
