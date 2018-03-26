@@ -1,0 +1,1520 @@
+Results of testing on a single K-40 GPU.
+
+Fields are:
+run-name, T, IndexType, outer_size, inner_size, cur_size, k-max, repeat-time, accu_copy_time, accu_calc_time, once_copy_time, once_calc_time
+
+--- Start a test: T=f IndexType=i 80 1 1000 1 100
+== Test with cpu-sorting
+sort    f       i       80      1       1000    1       100     0       0.3972  0       0.003972
+== Test with topk-cpu
+topk-cpu        f       i       80      1       1000    1       100     0       0.199583        0       0.00199583
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       1000    1       100     0.003193        0.007777        3.193e-05       7.777e-05
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     f       i       80      1       1000    1       100     0.003135        0.058384        3.135e-05       0.00058384
+topk-tf-8       f       i       80      1       1000    1       100     0.003103        0.058584        3.103e-05       0.00058584
+topk-tf-16      f       i       80      1       1000    1       100     0.003128        0.058605        3.128e-05       0.00058605
+topk-tf-32      f       i       80      1       1000    1       100     0.003074        0.058344        3.074e-05       0.00058344
+topk-tf-64      f       i       80      1       1000    1       100     0.003029        0.05847 3.029e-05       0.0005847
+topk-tf-96      f       i       80      1       1000    1       100     0.003105        0.058574        3.105e-05       0.00058574
+topk-tf-128     f       i       80      1       1000    1       100     0.003125        0.058467        3.125e-05       0.00058467
+topk-tf-256     f       i       80      1       1000    1       100     0.003747        0.059343        3.747e-05       0.00059343
+== Test with impl_tr
+topk-tr f       i       80      1       1000    1       100     0.004095        0.039937        4.095e-05       0.00039937
+
+--- Start a test: T=d IndexType=i 80 1 1000 1 100
+== Test with cpu-sorting
+sort    d       i       80      1       1000    1       100     0       0.6328  0       0.006328
+== Test with topk-cpu
+topk-cpu        d       i       80      1       1000    1       100     0       0.182362        0       0.00182362
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       1000    1       100     0.003082        0.007614        3.082e-05       7.614e-05
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     d       i       80      1       1000    1       100     0.003147        0.058574        3.147e-05       0.00058574
+topk-tf-8       d       i       80      1       1000    1       100     0.003181        0.058582        3.181e-05       0.00058582
+topk-tf-16      d       i       80      1       1000    1       100     0.003198        0.058471        3.198e-05       0.00058471
+topk-tf-32      d       i       80      1       1000    1       100     0.0032  0.058584        3.2e-05 0.00058584
+topk-tf-64      d       i       80      1       1000    1       100     0.003201        0.058584        3.201e-05       0.00058584
+topk-tf-96      d       i       80      1       1000    1       100     0.003204        0.05857 3.204e-05       0.0005857
+topk-tf-128     d       i       80      1       1000    1       100     0.003184        0.058472        3.184e-05       0.00058472
+topk-tf-256     d       i       80      1       1000    1       100     0.003191        0.058575        3.191e-05       0.00058575
+== Test with impl_tr
+topk-tr d       i       80      1       1000    1       100     0.003181        0.045456        3.181e-05       0.00045456
+
+--- Start a test: T=f IndexType=l 80 1 1000 1 100
+== Test with cpu-sorting
+sort    f       l       80      1       1000    1       100     0       0.5049  0       0.005049
+== Test with topk-cpu
+topk-cpu        f       l       80      1       1000    1       100     0       0.174076        0       0.00174076
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       1000    1       100     0.003031        0.008467        3.031e-05       8.467e-05
+== Test with impl_eigen
+topk-eigen      f       l       80      1       1000    1       100     0.002943        0.19009 2.943e-05       0.0019009
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     f       l       80      1       1000    1       100     0.002838        0.064098        2.838e-05       0.00064098
+topk-tf-8       f       l       80      1       1000    1       100     0.002786        0.064065        2.786e-05       0.00064065
+topk-tf-16      f       l       80      1       1000    1       100     0.002759        0.064096        2.759e-05       0.00064096
+topk-tf-32      f       l       80      1       1000    1       100     0.002811        0.064063        2.811e-05       0.00064063
+topk-tf-64      f       l       80      1       1000    1       100     0.002815        0.064066        2.815e-05       0.00064066
+topk-tf-96      f       l       80      1       1000    1       100     0.002786        0.064073        2.786e-05       0.00064073
+topk-tf-128     f       l       80      1       1000    1       100     0.002817        0.064008        2.817e-05       0.00064008
+topk-tf-256     f       l       80      1       1000    1       100     0.002813        0.064081        2.813e-05       0.00064081
+== Test with impl_tr
+topk-tr f       l       80      1       1000    1       100     0.002829        0.038083        2.829e-05       0.00038083
+
+--- Start a test: T=d IndexType=l 80 1 1000 1 100
+== Test with cpu-sorting
+sort    d       l       80      1       1000    1       100     0       0.5742  0       0.005742
+== Test with topk-cpu
+topk-cpu        d       l       80      1       1000    1       100     0       0.12103 0       0.0012103
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       1000    1       100     0.002735        0.008586        2.735e-05       8.586e-05
+== Test with impl_eigen
+topk-eigen      d       l       80      1       1000    1       100     0.002837        0.183773        2.837e-05       0.00183773
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     d       l       80      1       1000    1       100     0.002746        0.065592        2.746e-05       0.00065592
+topk-tf-8       d       l       80      1       1000    1       100     0.002748        0.065601        2.748e-05       0.00065601
+topk-tf-16      d       l       80      1       1000    1       100     0.002741        0.065602        2.741e-05       0.00065602
+topk-tf-32      d       l       80      1       1000    1       100     0.002751        0.065605        2.751e-05       0.00065605
+topk-tf-64      d       l       80      1       1000    1       100     0.002788        0.065492        2.788e-05       0.00065492
+topk-tf-96      d       l       80      1       1000    1       100     0.002743        0.065601        2.743e-05       0.00065601
+topk-tf-128     d       l       80      1       1000    1       100     0.002738        0.06558 2.738e-05       0.0006558
+topk-tf-256     d       l       80      1       1000    1       100     0.002767        0.065503        2.767e-05       0.00065503
+== Test with impl_tr
+topk-tr d       l       80      1       1000    1       100     0.002748        0.050025        2.748e-05       0.00050025
+
+--- Start a test: T=f IndexType=i 80 1 1000 4 100
+== Test with cpu-sorting
+sort    f       i       80      1       1000    4       100     0       0.3754  0       0.003754
+== Test with topk-cpu
+topk-cpu        f       i       80      1       1000    4       100     0       0.126874        0       0.00126874
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       1000    4       100     0.002755        0.008718        2.755e-05       8.718e-05
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     f       i       80      1       1000    4       100     0.002775        0.010812        2.775e-05       0.00010812
+topk-tf-8       f       i       80      1       1000    4       100     0.002772        0.010809        2.772e-05       0.00010809
+topk-tf-16      f       i       80      1       1000    4       100     0.002808        0.010898        2.808e-05       0.00010898
+topk-tf-32      f       i       80      1       1000    4       100     0.002808        0.010834        2.808e-05       0.00010834
+topk-tf-64      f       i       80      1       1000    4       100     0.002764        0.010836        2.764e-05       0.00010836
+topk-tf-96      f       i       80      1       1000    4       100     0.00278 0.010808        2.78e-05        0.00010808
+topk-tf-128     f       i       80      1       1000    4       100     0.002783        0.010812        2.783e-05       0.00010812
+== Test with impl_tr
+topk-tr f       i       80      1       1000    4       100     0.002788        0.04032 2.788e-05       0.0004032
+
+--- Start a test: T=d IndexType=i 80 1 1000 4 100
+== Test with cpu-sorting
+sort    d       i       80      1       1000    4       100     0       0.3819  0       0.003819
+== Test with topk-cpu
+topk-cpu        d       i       80      1       1000    4       100     0       0.136391        0       0.00136391
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       1000    4       100     0.002824        0.014312        2.824e-05       0.00014312
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     d       i       80      1       1000    4       100     0.002832        0.018515        2.832e-05       0.00018515
+topk-tf-8       d       i       80      1       1000    4       100     0.002854        0.018625        2.854e-05       0.00018625
+topk-tf-16      d       i       80      1       1000    4       100     0.002806        0.018618        2.806e-05       0.00018618
+topk-tf-32      d       i       80      1       1000    4       100     0.002842        0.018613        2.842e-05       0.00018613
+topk-tf-64      d       i       80      1       1000    4       100     0.002833        0.018625        2.833e-05       0.00018625
+topk-tf-96      d       i       80      1       1000    4       100     0.0028  0.018614        2.8e-05 0.00018614
+topk-tf-128     d       i       80      1       1000    4       100     0.002857        0.018637        2.857e-05       0.00018637
+== Test with impl_tr
+topk-tr d       i       80      1       1000    4       100     0.002841        0.051777        2.841e-05       0.00051777
+
+--- Start a test: T=f IndexType=l 80 1 1000 4 100
+== Test with cpu-sorting
+sort    f       l       80      1       1000    4       100     0       0.3939  0       0.003939
+== Test with topk-cpu
+topk-cpu        f       l       80      1       1000    4       100     0       0.138005        0       0.00138005
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       1000    4       100     0.002817        0.017576        2.817e-05       0.00017576
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     f       l       80      1       1000    4       100     0.002827        0.021738        2.827e-05       0.00021738
+topk-tf-8       f       l       80      1       1000    4       100     0.002855        0.021797        2.855e-05       0.00021797
+topk-tf-16      f       l       80      1       1000    4       100     0.002862        0.021787        2.862e-05       0.00021787
+topk-tf-32      f       l       80      1       1000    4       100     0.002827        0.021757        2.827e-05       0.00021757
+topk-tf-64      f       l       80      1       1000    4       100     0.002824        0.021775        2.824e-05       0.00021775
+topk-tf-96      f       l       80      1       1000    4       100     0.002843        0.021804        2.843e-05       0.00021804
+topk-tf-128     f       l       80      1       1000    4       100     0.002834        0.02177 2.834e-05       0.0002177
+== Test with impl_tr
+topk-tr f       l       80      1       1000    4       100     0.00282 0.041536        2.82e-05        0.00041536
+
+--- Start a test: T=d IndexType=l 80 1 1000 4 100
+== Test with cpu-sorting
+sort    d       l       80      1       1000    4       100     0       0.3607  0       0.003607
+== Test with topk-cpu
+topk-cpu        d       l       80      1       1000    4       100     0       0.104897        0       0.00104897
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       1000    4       100     0.002928        0.016393        2.928e-05       0.00016393
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     d       l       80      1       1000    4       100     0.002871        0.02108 2.871e-05       0.0002108
+topk-tf-8       d       l       80      1       1000    4       100     0.002901        0.021105        2.901e-05       0.00021105
+topk-tf-16      d       l       80      1       1000    4       100     0.002918        0.021068        2.918e-05       0.00021068
+topk-tf-32      d       l       80      1       1000    4       100     0.002918        0.021118        2.918e-05       0.00021118
+topk-tf-64      d       l       80      1       1000    4       100     0.002853        0.021082        2.853e-05       0.00021082
+topk-tf-96      d       l       80      1       1000    4       100     0.00288 0.021091        2.88e-05        0.00021091
+topk-tf-128     d       l       80      1       1000    4       100     0.002891        0.021078        2.891e-05       0.00021078
+== Test with impl_tr
+topk-tr d       l       80      1       1000    4       100     0.002907        0.054328        2.907e-05       0.00054328
+
+--- Start a test: T=f IndexType=i 80 1 1000 16 100
+== Test with cpu-sorting
+sort    f       i       80      1       1000    16      100     0       0.4097  0       0.004097
+== Test with topk-cpu
+topk-cpu        f       i       80      1       1000    16      100     0       0.12284 0       0.0012284
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       1000    16      100     0.003157        0.023035        3.157e-05       0.00023035
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      f       i       80      1       1000    16      100     0.003149        0.02017 3.149e-05       0.0002017
+topk-tf-8       f       i       80      1       1000    16      100     0.003196        0.020195        3.196e-05       0.00020195
+topk-tf-16      f       i       80      1       1000    16      100     0.003168        0.020205        3.168e-05       0.00020205
+topk-tf-32      f       i       80      1       1000    16      100     0.003175        0.020255        3.175e-05       0.00020255
+== Test with impl_tr
+topk-tr f       i       80      1       1000    16      100     0.003185        0.043824        3.185e-05       0.00043824
+
+--- Start a test: T=d IndexType=i 80 1 1000 16 100
+== Test with cpu-sorting
+sort    d       i       80      1       1000    16      100     0       0.3935  0       0.003935
+== Test with topk-cpu
+topk-cpu        d       i       80      1       1000    16      100     0       0.134617        0       0.00134617
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       1000    16      100     0.003483        0.025627        3.483e-05       0.00025627
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      d       i       80      1       1000    16      100     0.003474        0.038477        3.474e-05       0.00038477
+topk-tf-8       d       i       80      1       1000    16      100     0.00346 0.038511        3.46e-05        0.00038511
+topk-tf-16      d       i       80      1       1000    16      100     0.003462        0.038524        3.462e-05       0.00038524
+topk-tf-32      d       i       80      1       1000    16      100     0.003533        0.038492        3.533e-05       0.00038492
+== Test with impl_tr
+topk-tr d       i       80      1       1000    16      100     0.003464        0.053991        3.464e-05       0.00053991
+
+
+--- Start a test: T=f IndexType=l 80 1 1000 16 100
+== Test with cpu-sorting
+sort    f       l       80      1       1000    16      100     0       0.4355 00.004355
+== Test with topk-cpu
+topk-cpu        f       l       80      1       1000    16      100     0      0.13803  0       0.0013803
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       1000    16      100     0.0032260.032627        3.226e-05       0.00032627
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      f       l       80      1       1000    16      100     0.0032320.051167        3.232e-05       0.00051167
+topk-tf-8       f       l       80      1       1000    16      100     0.0032350.051138        3.235e-05       0.00051138
+topk-tf-16      f       l       80      1       1000    16      100     0.0032430.051056        3.243e-05       0.00051056
+topk-tf-32      f       l       80      1       1000    16      100     0.003230.051169 3.23e-05        0.00051169
+== Test with impl_tr
+topk-tr f       l       80      1       1000    16      100     0.003276       0.045156 3.276e-05       0.00045156
+
+--- Start a test: T=d IndexType=l 80 1 1000 16 100
+== Test with cpu-sorting
+sort    d       l       80      1       1000    16      100     0       0.3712 00.003712
+== Test with topk-cpu
+topk-cpu        d       l       80      1       1000    16      100     0      0.108652 0       0.00108652
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       1000    16      100     0.0034490.028159        3.449e-05       0.00028159
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      d       l       80      1       1000    16      100     0.0034140.044604        3.414e-05       0.00044604
+topk-tf-8       d       l       80      1       1000    16      100     0.0034690.044544        3.469e-05       0.00044544
+topk-tf-16      d       l       80      1       1000    16      100     0.0034510.04458 3.451e-05       0.0004458
+topk-tf-32      d       l       80      1       1000    16      100     0.0034470.044619        3.447e-05       0.00044619
+== Test with impl_tr
+topk-tr d       l       80      1       1000    16      100     0.003421       0.056775 3.421e-05       0.00056775
+
+--- Start a test: T=f IndexType=i 80 1 1000 32 100
+== Test with cpu-sorting
+sort    f       i       80      1       1000    32      100     0       0.4034 00.004034
+== Test with topk-cpu
+topk-cpu        f       i       80      1       1000    32      100     0      0.131133 0       0.00131133
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       1000    32      100     0.0034290.044269        3.429e-05       0.00044269
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      f       i       80      1       1000    32      100     0.0034410.031113        3.441e-05       0.00031113
+topk-tf-8       f       i       80      1       1000    32      100     0.0034020.03126 3.402e-05       0.0003126
+topk-tf-16      f       i       80      1       1000    32      100     0.0034130.031216        3.413e-05       0.00031216
+== Test with impl_tr
+topk-tr f       i       80      1       1000    32      100     0.003455       0.044209 3.455e-05       0.00044209
+
+--- Start a test: T=d IndexType=i 80 1 1000 32 100
+== Test with cpu-sorting
+sort    d       i       80      1       1000    32      100     0       0.407  00.00407
+== Test with topk-cpu
+topk-cpu        d       i       80      1       1000    32      100     0      0.1363   0       0.001363
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       1000    32      100     0.003870.055976 3.87e-05        0.00055976
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      d       i       80      1       1000    32      100     0.0038320.063973        3.832e-05       0.00063973
+topk-tf-8       d       i       80      1       1000    32      100     0.0037990.064102        3.799e-05       0.00064102
+topk-tf-16      d       i       80      1       1000    32      100     0.0038280.064103        3.828e-05       0.00064103
+== Test with impl_tr
+topk-tr d       i       80      1       1000    32      100     0.003843       0.055769 3.843e-05       0.00055769
+
+--- Start a test: T=f IndexType=l 80 1 1000 32 100
+== Test with cpu-sorting
+sort    f       l       80      1       1000    32      100     0       0.4251 00.004251
+== Test with topk-cpu
+topk-cpu        f       l       80      1       1000    32      100     0      0.139986 0       0.00139986
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       1000    32      100     0.0038050.044366        3.805e-05       0.00044366
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      f       l       80      1       1000    32      100     0.0038180.0836  3.818e-05       0.000836
+topk-tf-8       f       l       80      1       1000    32      100     0.0038150.083877        3.815e-05       0.00083877
+topk-tf-16      f       l       80      1       1000    32      100     0.0038060.083736        3.806e-05       0.00083736
+== Test with impl_tr
+topk-tr f       l       80      1       1000    32      100     0.00381 0.0445033.81e-05        0.00044503
+
+--- Start a test: T=d IndexType=l 80 1 1000 32 100
+== Test with cpu-sorting
+sort    d       l       80      1       1000    32      100     0       0.3866 00.003866
+== Test with topk-cpu
+topk-cpu        d       l       80      1       1000    32      100     0      0.109251 0       0.00109251
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       1000    32      100     0.0043030.056614        4.303e-05       0.00056614
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      d       l       80      1       1000    32      100     0.004150.071886 4.15e-05        0.00071886
+topk-tf-8       d       l       80      1       1000    32      100     0.0041480.071914        4.148e-05       0.00071914
+topk-tf-16      d       l       80      1       1000    32      100     0.004120.071926 4.12e-05        0.00071926
+== Test with impl_tr
+topk-tr d       l       80      1       1000    32      100     0.004165       0.05635  4.165e-05       0.0005635
+
+--- Start a test: T=f IndexType=i 80 1 1000 64 100
+== Test with cpu-sorting
+sort    f       i       80      1       1000    64      100     0       0.4289 00.004289
+== Test with topk-cpu
+topk-cpu        f       i       80      1       1000    64      100     0      0.135814 0       0.00135814
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       1000    64      100     0.0042080.043389        4.208e-05       0.00043389
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       f       i       80      1       1000    64      100     0.0042240.053147        4.224e-05       0.00053147
+topk-tf-8       f       i       80      1       1000    64      100     0.0042220.053357        4.222e-05       0.00053357
+== Test with impl_tr
+topk-tr f       i       80      1       1000    64      100     0.00423 0.0434394.23e-05        0.00043439
+
+--- Start a test: T=d IndexType=i 80 1 1000 64 100
+== Test with cpu-sorting
+sort    d       i       80      1       1000    64      100     0       0.4298 00.004298
+== Test with topk-cpu
+topk-cpu        d       i       80      1       1000    64      100     0      0.142402 0       0.00142402
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       1000    64      100     0.0048660.055188        4.866e-05       0.00055188
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       d       i       80      1       1000    64      100     0.0049170.107969        4.917e-05       0.00107969
+topk-tf-8       d       i       80      1       1000    64      100     0.0048970.107897        4.897e-05       0.00107897
+== Test with impl_tr
+topk-tr d       i       80      1       1000    64      100     0.00489 0.0552284.89e-05        0.00055228
+
+--- Start a test: T=f IndexType=l 80 1 1000 64 100
+== Test with cpu-sorting
+sort    f       l       80      1       1000    64      100     0       0.4453 00.004453
+== Test with topk-cpu
+topk-cpu        f       l       80      1       1000    64      100     0      0.143724 0       0.00143724
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       1000    64      100     0.0049070.045895        4.907e-05       0.00045895
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       f       l       80      1       1000    64      100     0.0060330.140307        6.033e-05       0.00140307
+topk-tf-8       f       l       80      1       1000    64      100     0.0076230.140482        7.623e-05       0.00140482
+== Test with impl_tr
+topk-tr f       l       80      1       1000    64      100     0.007638       0.04619  7.638e-05       0.0004619
+
+--- Start a test: T=d IndexType=l 80 1 1000 64 100
+== Test with cpu-sorting
+sort    d       l       80      1       1000    64      100     0       0.8002 00.008002
+== Test with topk-cpu
+topk-cpu        d       l       80      1       1000    64      100     0      0.141634 0       0.00141634
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       1000    64      100     0.0055950.055153        5.595e-05       0.00055153
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       d       l       80      1       1000    64      100     0.005610.121125 5.61e-05        0.00121125
+topk-tf-8       d       l       80      1       1000    64      100     0.0055980.121278        5.598e-05       0.00121278
+== Test with impl_tr
+topk-tr d       l       80      1       1000    64      100     0.005605       0.055095 5.605e-05       0.00055095
+
+--- Start a test: T=f IndexType=i 80 1 30000 1 100
+== Test with cpu-sorting
+sort    f       i       80      1       30000   1       100     0       15.327100.153271
+== Test with topk-cpu
+topk-cpu        f       i       80      1       30000   1       100     0      3.69685  0       0.0369684
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       30000   1       100     0.0027140.018941        2.714e-05       0.00018941
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       i       80      1       30000   1       100     0.0027820.070613        2.782e-05       0.00070613
+topk-tf-8       f       i       80      1       30000   1       100     0.0027820.070772        2.782e-05       0.00070772
+topk-tf-16      f       i       80      1       30000   1       100     0.0028 0.070754 2.8e-05 0.00070754
+topk-tf-32      f       i       80      1       30000   1       100     0.0027560.070648        2.756e-05       0.00070648
+topk-tf-64      f       i       80      1       30000   1       100     0.0027760.070739        2.776e-05       0.00070739
+topk-tf-96      f       i       80      1       30000   1       100     0.0027720.070761        2.772e-05       0.00070761
+topk-tf-128     f       i       80      1       30000   1       100     0.0027720.07065 2.772e-05       0.0007065
+topk-tf-256     f       i       80      1       30000   1       100     0.0027660.070809        2.766e-05       0.00070809
+== Test with impl_tr
+topk-tr f       i       80      1       30000   1       100     0.002849       0.266123 2.849e-05       0.00266123
+
+--- Start a test: T=d IndexType=i 80 1 30000 1 100
+== Test with cpu-sorting
+sort    d       i       80      1       30000   1       100     0       15.519700.155197
+== Test with topk-cpu
+topk-cpu        d       i       80      1       30000   1       100     0      3.88594  0       0.0388594
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       30000   1       100     0.0043310.021319        4.331e-05       0.00021319
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     d       i       80      1       30000   1       100     0.0038510.072472        3.851e-05       0.00072472
+topk-tf-8       d       i       80      1       30000   1       100     0.003370.072328 3.37e-05        0.00072328
+topk-tf-16      d       i       80      1       30000   1       100     0.003210.072075 3.21e-05        0.00072075
+topk-tf-32      d       i       80      1       30000   1       100     0.0031810.072268        3.181e-05       0.00072268
+topk-tf-64      d       i       80      1       30000   1       100     0.0032080.07225 3.208e-05       0.0007225
+topk-tf-96      d       i       80      1       30000   1       100     0.0032110.072108        3.211e-05       0.00072108
+topk-tf-128     d       i       80      1       30000   1       100     0.0032010.0722  3.201e-05       0.000722
+topk-tf-256     d       i       80      1       30000   1       100     0.0032050.07224 3.205e-05       0.0007224
+== Test with impl_tr
+topk-tr d       i       80      1       30000   1       100     0.003268       0.355668 3.268e-05       0.00355668
+
+--- Start a test: T=f IndexType=l 80 1 30000 1 100
+== Test with cpu-sorting
+sort    f       l       80      1       30000   1       100     0       16.128600.161286
+== Test with topk-cpu
+topk-cpu        f       l       80      1       30000   1       100     0      3.89452  0       0.0389452
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       30000   1       100     0.0027740.020911        2.774e-05       0.00020911
+== Test with impl_eigen
+topk-eigen      f       l       80      1       30000   1       100     0.0029975.79799 2.997e-05       0.0579799
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       l       80      1       30000   1       100     0.0027690.078358        2.769e-05       0.00078358
+topk-tf-8       f       l       80      1       30000   1       100     0.0027640.078198        2.764e-05       0.00078198
+topk-tf-16      f       l       80      1       30000   1       100     0.0027410.078322        2.741e-05       0.00078322
+topk-tf-32      f       l       80      1       30000   1       100     0.002750.078206 2.75e-05        0.00078206
+topk-tf-64      f       l       80      1       30000   1       100     0.0027960.078349        2.796e-05       0.00078349
+topk-tf-96      f       l       80      1       30000   1       100     0.0027460.078334        2.746e-05       0.00078334
+topk-tf-128     f       l       80      1       30000   1       100     0.0027640.07821 2.764e-05       0.0007821
+topk-tf-256     f       l       80      1       30000   1       100     0.0027910.078359        2.791e-05       0.00078359
+== Test with impl_tr
+topk-tr f       l       80      1       30000   1       100     0.002868       0.258311 2.868e-05       0.00258311
+
+--- Start a test: T=d IndexType=l 80 1 30000 1 100
+== Test with cpu-sorting
+sort    d       l       80      1       30000   1       100     0       14.942900.149429
+== Test with topk-cpu
+topk-cpu        d       l       80      1       30000   1       100     0      3.10777  0       0.0310777
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       30000   1       100     0.002760.022698 2.76e-05        0.00022698
+== Test with impl_eigen
+topk-eigen      d       l       80      1       30000   1       100     0.0029715.7572  2.971e-05       0.057572
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     d       l       80      1       30000   1       100     0.0027860.080297        2.786e-05       0.00080297
+topk-tf-8       d       l       80      1       30000   1       100     0.0028320.080479        2.832e-05       0.00080479
+topk-tf-16      d       l       80      1       30000   1       100     0.0028590.080473        2.859e-05       0.00080473
+topk-tf-32      d       l       80      1       30000   1       100     0.0028530.080336        2.853e-05       0.00080336
+topk-tf-64      d       l       80      1       30000   1       100     0.0027710.080418        2.771e-05       0.00080418
+topk-tf-96      d       l       80      1       30000   1       100     0.0027960.080311        2.796e-05       0.00080311
+topk-tf-128     d       l       80      1       30000   1       100     0.0027820.080459        2.782e-05       0.00080459
+topk-tf-256     d       l       80      1       30000   1       100     0.0027780.080425        2.778e-05       0.00080425
+== Test with impl_tr
+topk-tr d       l       80      1       30000   1       100     0.002896       0.406988 2.896e-05       0.00406988
+
+--- Start a test: T=f IndexType=i 80 1 30000 4 100
+== Test with cpu-sorting
+sort    f       i       80      1       30000   4       100     0       15.269500.152695
+== Test with topk-cpu
+topk-cpu        f       i       80      1       30000   4       100     0      3.69161  0       0.0369161
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       30000   4       100     0.0027910.058225        2.791e-05       0.00058225
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       i       80      1       30000   4       100     0.0028810.170534        2.881e-05       0.00170534
+topk-tf-8       f       i       80      1       30000   4       100     0.0028540.170609        2.854e-05       0.00170609
+topk-tf-16      f       i       80      1       30000   4       100     0.0028870.170357        2.887e-05       0.00170357
+topk-tf-32      f       i       80      1       30000   4       100     0.0028860.170619        2.886e-05       0.00170619
+topk-tf-64      f       i       80      1       30000   4       100     0.0028930.170612        2.893e-05       0.00170612
+topk-tf-96      f       i       80      1       30000   4       100     0.0029310.170615        2.931e-05       0.00170615
+topk-tf-128     f       i       80      1       30000   4       100     0.0028980.170709        2.898e-05       0.00170709
+topk-tf-256     f       i       80      1       30000   4       100     0.0028880.170641        2.888e-05       0.00170641
+== Test with impl_tr
+topk-tr f       i       80      1       30000   4       100     0.002872       0.284025 2.872e-05       0.00284025
+
+--- Start a test: T=d IndexType=i 80 1 30000 4 100
+== Test with cpu-sorting
+sort    d       i       80      1       30000   4       100     0       15.496900.154969
+== Test with topk-cpu
+topk-cpu        d       i       80      1       30000   4       100     0      3.80048  0       0.0380048
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       30000   4       100     0.0028620.068698        2.862e-05       0.00068698
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     d       i       80      1       30000   4       100     0.002920.163619 2.92e-05        0.00163619
+topk-tf-8       d       i       80      1       30000   4       100     0.0029440.163505        2.944e-05       0.00163505
+topk-tf-16      d       i       80      1       30000   4       100     0.0029260.163272        2.926e-05       0.00163272
+topk-tf-32      d       i       80      1       30000   4       100     0.0029120.163637        2.912e-05       0.00163637
+topk-tf-64      d       i       80      1       30000   4       100     0.0029280.163514        2.928e-05       0.00163514
+topk-tf-96      d       i       80      1       30000   4       100     0.0028910.163559        2.891e-05       0.00163559
+topk-tf-128     d       i       80      1       30000   4       100     0.0029880.163478        2.988e-05       0.00163478
+topk-tf-256     d       i       80      1       30000   4       100     0.0029270.163505        2.927e-05       0.00163505
+== Test with impl_tr
+topk-tr d       i       80      1       30000   4       100     0.002945       0.387613 2.945e-05       0.00387613
+
+--- Start a test: T=f IndexType=l 80 1 30000 4 100
+== Test with cpu-sorting
+sort    f       l       80      1       30000   4       100     0       16.168500.161685
+== Test with topk-cpu
+topk-cpu        f       l       80      1       30000   4       100     0      4.08983  0       0.0408983
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       30000   4       100     0.0028950.084722        2.895e-05       0.00084722
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     f       l       80      1       30000   4       100     0.0029620.190607        2.962e-05       0.00190607
+topk-tf-8       f       l       80      1       30000   4       100     0.002970.190622 2.97e-05        0.00190622
+topk-tf-16      f       l       80      1       30000   4       100     0.0029220.190624        2.922e-05       0.00190624
+topk-tf-32      f       l       80      1       30000   4       100     0.002980.190711 2.98e-05        0.00190711
+topk-tf-64      f       l       80      1       30000   4       100     0.0029620.190412        2.962e-05       0.00190412
+topk-tf-96      f       l       80      1       30000   4       100     0.002960.190584 2.96e-05        0.00190584
+topk-tf-128     f       l       80      1       30000   4       100     0.0029440.190702        2.944e-05       0.00190702
+topk-tf-256     f       l       80      1       30000   4       100     0.002940.190698 2.94e-05        0.00190698
+== Test with impl_tr
+topk-tr f       l       80      1       30000   4       100     0.002971       0.292881 2.971e-05       0.00292881
+
+--- Start a test: T=d IndexType=l 80 1 30000 4 100
+== Test with cpu-sorting
+sort    d       l       80      1       30000   4       100     0       14.998400.149984
+== Test with topk-cpu
+topk-cpu        d       l       80      1       30000   4       100     0      3.12462  0       0.0312462
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       30000   4       100     0.0029350.078435        2.935e-05       0.00078435
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     d       l       80      1       30000   4       100     0.0029770.182863        2.977e-05       0.00182863
+topk-tf-8       d       l       80      1       30000   4       100     0.0029850.1829  2.985e-05       0.001829
+topk-tf-16      d       l       80      1       30000   4       100     0.0029660.182932        2.966e-05       0.00182932
+topk-tf-32      d       l       80      1       30000   4       100     0.002970.182847 2.97e-05        0.00182847
+topk-tf-64      d       l       80      1       30000   4       100     0.0029820.182812        2.982e-05       0.00182812
+topk-tf-96      d       l       80      1       30000   4       100     0.0029710.182832        2.971e-05       0.00182832
+topk-tf-128     d       l       80      1       30000   4       100     0.0029950.182683        2.995e-05       0.00182683
+topk-tf-256     d       l       80      1       30000   4       100     0.0029490.182976        2.949e-05       0.00182976
+== Test with impl_tr
+topk-tr d       l       80      1       30000   4       100     0.002985       0.433953 2.985e-05       0.00433953
+
+--- Start a test: T=f IndexType=i 80 1 30000 16 100
+== Test with cpu-sorting
+sort    f       i       80      1       30000   16      100     0       15.306900.153069
+== Test with topk-cpu
+topk-cpu        f       i       80      1       30000   16      100     0      3.58367  0       0.0358367
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       30000   16      100     0.0031870.252783        3.187e-05       0.00252783
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 383
+topk-tf-128     f       i       80      1       30000   16      100     0.0031820.314014        3.182e-05       0.00314014
+topk-tf-8       f       i       80      1       30000   16      100     0.0032130.314213        3.213e-05       0.00314213
+topk-tf-16      f       i       80      1       30000   16      100     0.0031640.313902        3.164e-05       0.00313902
+topk-tf-32      f       i       80      1       30000   16      100     0.0032010.31427 3.201e-05       0.0031427
+topk-tf-64      f       i       80      1       30000   16      100     0.0031880.314071        3.188e-05       0.00314071
+topk-tf-96      f       i       80      1       30000   16      100     0.0031750.313967        3.175e-05       0.00313967
+topk-tf-128     f       i       80      1       30000   16      100     0.0031870.314035        3.187e-05       0.00314035
+topk-tf-256     f       i       80      1       30000   16      100     0.0031770.314036        3.177e-05       0.00314036
+== Test with impl_tr
+topk-tr f       i       80      1       30000   16      100     0.003186       0.286825 3.186e-05       0.00286825
+
+--- Start a test: T=d IndexType=i 80 1 30000 16 100
+== Test with cpu-sorting
+sort    d       i       80      1       30000   16      100     0       15.524 00.15524
+== Test with topk-cpu
+topk-cpu        d       i       80      1       30000   16      100     0      3.87923  0       0.0387923
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       30000   16      100     0.0033960.646138        3.396e-05       0.00646138
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      d       i       80      1       30000   16      100     0.0033880.459648        3.388e-05       0.00459648
+topk-tf-8       d       i       80      1       30000   16      100     0.0033850.459338        3.385e-05       0.00459338
+topk-tf-16      d       i       80      1       30000   16      100     0.0034090.459623        3.409e-05       0.00459623
+topk-tf-32      d       i       80      1       30000   16      100     0.0034030.4594  3.403e-05       0.004594
+topk-tf-64      d       i       80      1       30000   16      100     0.003360.459657 3.36e-05        0.00459657
+topk-tf-96      d       i       80      1       30000   16      100     0.0034020.45943 3.402e-05       0.0045943
+topk-tf-128     d       i       80      1       30000   16      100     0.0034030.45946 3.403e-05       0.0045946
+== Test with impl_tr
+topk-tr d       i       80      1       30000   16      100     0.003369       0.402053 3.369e-05       0.00402053
+
+--- Start a test: T=f IndexType=l 80 1 30000 16 100
+== Test with cpu-sorting
+sort    f       l       80      1       30000   16      100     0       16.177500.161775
+== Test with topk-cpu
+topk-cpu        f       l       80      1       30000   16      100     0      3.93389  0       0.0393389
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       30000   16      100     0.003390.817847 3.39e-05        0.00817847
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      f       l       80      1       30000   16      100     0.0033760.581771        3.376e-05       0.00581771
+topk-tf-8       f       l       80      1       30000   16      100     0.0033710.581592        3.371e-05       0.00581592
+topk-tf-16      f       l       80      1       30000   16      100     0.0033990.58178 3.399e-05       0.0058178
+topk-tf-32      f       l       80      1       30000   16      100     0.0033760.581469        3.376e-05       0.00581469
+topk-tf-64      f       l       80      1       30000   16      100     0.0033780.581672        3.378e-05       0.00581672
+topk-tf-96      f       l       80      1       30000   16      100     0.0033570.581774        3.357e-05       0.00581774
+topk-tf-128     f       l       80      1       30000   16      100     0.0033590.581601        3.359e-05       0.00581601
+== Test with impl_tr
+topk-tr f       l       80      1       30000   16      100     0.003315       0.302342 3.315e-05       0.00302342
+
+--- Start a test: T=d IndexType=l 80 1 30000 16 100
+== Test with cpu-sorting
+sort    d       l       80      1       30000   16      100     0       14.940800.149408
+== Test with topk-cpu
+topk-cpu        d       l       80      1       30000   16      100     0      3.06046  0       0.0306046
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       30000   16      100     0.0036 0.726287 3.6e-05 0.00726287
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      d       l       80      1       30000   16      100     0.0035420.511023        3.542e-05       0.00511023
+topk-tf-8       d       l       80      1       30000   16      100     0.0035560.511026        3.556e-05       0.00511026
+topk-tf-16      d       l       80      1       30000   16      100     0.0035250.511086        3.525e-05       0.00511086
+topk-tf-32      d       l       80      1       30000   16      100     0.0035470.510935        3.547e-05       0.00510935
+topk-tf-64      d       l       80      1       30000   16      100     0.0035380.511013        3.538e-05       0.00511013
+topk-tf-96      d       l       80      1       30000   16      100     0.0035260.510932        3.526e-05       0.00510932
+topk-tf-128     d       l       80      1       30000   16      100     0.0035660.51103 3.566e-05       0.0051103
+== Test with impl_tr
+topk-tr d       l       80      1       30000   16      100     0.00356 0.4640323.56e-05        0.00464032
+
+--- Start a test: T=f IndexType=i 80 1 30000 32 100
+== Test with cpu-sorting
+sort    f       i       80      1       30000   32      100     0       15.288400.152884
+== Test with topk-cpu
+topk-cpu        f       i       80      1       30000   32      100     0      3.56694  0       0.0356694
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       30000   32      100     0.0035940.293193        3.594e-05       0.00293193
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      f       i       80      1       30000   32      100     0.0036120.621903        3.612e-05       0.00621903
+topk-tf-8       f       i       80      1       30000   32      100     0.0036150.622097        3.615e-05       0.00622097
+topk-tf-16      f       i       80      1       30000   32      100     0.0035790.621997        3.579e-05       0.00621997
+topk-tf-32      f       i       80      1       30000   32      100     0.0035710.621867        3.571e-05       0.00621867
+topk-tf-64      f       i       80      1       30000   32      100     0.0036080.622131        3.608e-05       0.00622131
+topk-tf-96      f       i       80      1       30000   32      100     0.0035870.621773        3.587e-05       0.00621773
+topk-tf-128     f       i       80      1       30000   32      100     0.0035670.622143        3.567e-05       0.00622143
+== Test with impl_tr
+topk-tr f       i       80      1       30000   32      100     0.00359 0.292953.59e-05 0.0029295
+
+--- Start a test: T=d IndexType=i 80 1 30000 32 100
+== Test with cpu-sorting
+sort    d       i       80      1       30000   32      100     0       15.551700.155517
+== Test with topk-cpu
+topk-cpu        d       i       80      1       30000   32      100     0      3.96359  0       0.0396359
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       30000   32      100     0.0038740.399999        3.874e-05       0.00399999
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      d       i       80      1       30000   32      100     0.003951.00527  3.95e-05        0.0100527
+topk-tf-8       d       i       80      1       30000   32      100     0.0039021.00525 3.902e-05       0.0100525
+topk-tf-16      d       i       80      1       30000   32      100     0.0038791.00515 3.879e-05       0.0100515
+topk-tf-32      d       i       80      1       30000   32      100     0.003921.00513  3.92e-05        0.0100513
+topk-tf-64      d       i       80      1       30000   32      100     0.0039031.0052  3.903e-05       0.010052
+== Test with impl_tr
+topk-tr d       i       80      1       30000   32      100     0.003913       0.400113 3.913e-05       0.00400113
+
+--- Start a test: T=f IndexType=l 80 1 30000 32 100
+== Test with cpu-sorting
+sort    f       l       80      1       30000   32      100     0       16.197600.161976
+== Test with topk-cpu
+topk-cpu        f       l       80      1       30000   32      100     0      3.93769  0       0.0393769
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       30000   32      100     0.0039230.303012        3.923e-05       0.00303012
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      f       l       80      1       30000   32      100     0.003961.27852  3.96e-05        0.0127852
+topk-tf-8       f       l       80      1       30000   32      100     0.0039451.27817 3.945e-05       0.0127817
+topk-tf-16      f       l       80      1       30000   32      100     0.0039531.27856 3.953e-05       0.0127856
+topk-tf-32      f       l       80      1       30000   32      100     0.0039621.27853 3.962e-05       0.0127853
+topk-tf-64      f       l       80      1       30000   32      100     0.0039731.27851 3.973e-05       0.0127851
+== Test with impl_tr
+topk-tr f       l       80      1       30000   32      100     0.00394 0.302573.94e-05 0.0030257
+
+--- Start a test: T=d IndexType=l 80 1 30000 32 100
+== Test with cpu-sorting
+sort    d       l       80      1       30000   32      100     0       14.947 00.14947
+== Test with topk-cpu
+topk-cpu        d       l       80      1       30000   32      100     0      2.91492  0       0.0291492
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       30000   32      100     0.0042960.470646        4.296e-05       0.00470646
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      d       l       80      1       30000   32      100     0.004311.10771  4.31e-05        0.0110771
+topk-tf-8       d       l       80      1       30000   32      100     0.0043 1.10779  4.3e-05 0.0110779
+topk-tf-16      d       l       80      1       30000   32      100     0.0042681.10727 4.268e-05       0.0110727
+topk-tf-32      d       l       80      1       30000   32      100     0.0042961.10759 4.296e-05       0.0110759
+topk-tf-64      d       l       80      1       30000   32      100     0.0042911.10781 4.291e-05       0.0110781
+== Test with impl_tr
+topk-tr d       l       80      1       30000   32      100     0.004283       0.470553 4.283e-05       0.00470553
+
+--- Start a test: T=f IndexType=i 80 1 30000 64 100
+== Test with cpu-sorting
+sort    f       i       80      1       30000   64      100     0       15.316900.153169
+== Test with topk-cpu
+topk-cpu        f       i       80      1       30000   64      100     0      3.67346  0       0.0367346
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      1       30000   64      100     0.0043210.299034        4.321e-05       0.00299034
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      f       i       80      1       30000   64      100     0.0043391.2787  4.339e-05       0.012787
+topk-tf-8       f       i       80      1       30000   64      100     0.0043491.27927 4.349e-05       0.0127927
+topk-tf-16      f       i       80      1       30000   64      100     0.0043341.27891 4.334e-05       0.0127891
+topk-tf-32      f       i       80      1       30000   64      100     0.0043131.27892 4.313e-05       0.0127892
+topk-tf-64      f       i       80      1       30000   64      100     0.0043311.27898 4.331e-05       0.0127898
+== Test with impl_tr
+topk-tr f       i       80      1       30000   64      100     0.004286       0.298881 4.286e-05       0.00298881
+
+--- Start a test: T=d IndexType=i 80 1 30000 64 100
+== Test with cpu-sorting
+sort    d       i       80      1       30000   64      100     0       15.567700.155677
+== Test with topk-cpu
+topk-cpu        d       i       80      1       30000   64      100     0      3.93346  0       0.0393346
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      1       30000   64      100     0.0049730.409136        4.973e-05       0.00409136
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      d       i       80      1       30000   64      100     0.0049712.24689 4.971e-05       0.0224689
+topk-tf-8       d       i       80      1       30000   64      100     0.0050072.24655 5.007e-05       0.0224655
+topk-tf-16      d       i       80      1       30000   64      100     0.0049692.24693 4.969e-05       0.0224693
+topk-tf-32      d       i       80      1       30000   64      100     0.0049982.24701 4.998e-05       0.0224701
+== Test with impl_tr
+topk-tr d       i       80      1       30000   64      100     0.004954       0.408785 4.954e-05       0.00408785
+
+--- Start a test: T=f IndexType=l 80 1 30000 64 100
+== Test with cpu-sorting
+sort    f       l       80      1       30000   64      100     0       16.194200.161942
+== Test with topk-cpu
+topk-cpu        f       l       80      1       30000   64      100     0      3.89152  0       0.0389152
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      1       30000   64      100     0.0050060.308536        5.006e-05       0.00308536
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      f       l       80      1       30000   64      100     0.005092.86543  5.09e-05        0.0286543
+topk-tf-8       f       l       80      1       30000   64      100     0.005092.86565  5.09e-05        0.0286565
+topk-tf-16      f       l       80      1       30000   64      100     0.005082.8655   5.08e-05        0.028655
+topk-tf-32      f       l       80      1       30000   64      100     0.0050812.86546 5.081e-05       0.0286546
+== Test with impl_tr
+topk-tr f       l       80      1       30000   64      100     0.005038       0.308461 5.038e-05       0.00308461
+
+--- Start a test: T=d IndexType=l 80 1 30000 64 100
+== Test with cpu-sorting
+sort    d       l       80      1       30000   64      100     0       15.507500.155075
+== Test with topk-cpu
+topk-cpu        d       l       80      1       30000   64      100     0      3.06048  0       0.0306048
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      1       30000   64      100     0.0096070.471559        9.607e-05       0.00471559
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      d       l       80      1       30000   64      100     0.0096092.45943 9.609e-05       0.0245943
+topk-tf-8       d       l       80      1       30000   64      100     0.009572.45929  9.57e-05        0.0245929
+topk-tf-16      d       l       80      1       30000   64      100     0.0095872.45931 9.587e-05       0.0245931
+topk-tf-32      d       l       80      1       30000   64      100     0.0095322.45936 9.532e-05       0.0245936
+== Test with impl_tr
+topk-tr d       l       80      1       30000   64      100     0.009553       0.471915 9.553e-05       0.00471915
+
+--- Start a test: T=f IndexType=i 80 4 1000 1 100
+== Test with cpu-sorting
+sort    f       i       80      4       1000    1       100     0       2.2092 00.022092
+== Test with topk-cpu
+topk-cpu        f       i       80      4       1000    1       100     0      0.680885 0       0.00680885
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       1000    1       100     0.0031420.019072        3.142e-05       0.00019072
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     f       i       80      4       1000    1       100     0.0031510.209247        3.151e-05       0.00209247
+topk-tf-8       f       i       80      4       1000    1       100     0.0028560.209173        2.856e-05       0.00209173
+topk-tf-16      f       i       80      4       1000    1       100     0.0028370.209153        2.837e-05       0.00209153
+topk-tf-32      f       i       80      4       1000    1       100     0.0028990.208876        2.899e-05       0.00208876
+topk-tf-64      f       i       80      4       1000    1       100     0.0028930.209127        2.893e-05       0.00209127
+topk-tf-96      f       i       80      4       1000    1       100     0.0028640.209136        2.864e-05       0.00209136
+topk-tf-128     f       i       80      4       1000    1       100     0.0028640.20913 2.864e-05       0.0020913
+topk-tf-256     f       i       80      4       1000    1       100     0.0028730.208867        2.873e-05       0.00208867
+== Test with impl_tr
+topk-tr f       i       80      4       1000    1       100     0.002855       0.131117 2.855e-05       0.00131117
+
+--- Start a test: T=d IndexType=i 80 4 1000 1 100
+== Test with cpu-sorting
+sort    d       i       80      4       1000    1       100     0       1.4974 00.014974
+== Test with topk-cpu
+topk-cpu        d       i       80      4       1000    1       100     0      0.543311 0       0.00543311
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       1000    1       100     0.0028760.019911        2.876e-05       0.00019911
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     d       i       80      4       1000    1       100     0.0029640.210383        2.964e-05       0.00210383
+topk-tf-8       d       i       80      4       1000    1       100     0.0029440.210639        2.944e-05       0.00210639
+topk-tf-16      d       i       80      4       1000    1       100     0.0029130.210501        2.913e-05       0.00210501
+topk-tf-32      d       i       80      4       1000    1       100     0.0029390.210625        2.939e-05       0.00210625
+topk-tf-64      d       i       80      4       1000    1       100     0.0029360.210643        2.936e-05       0.00210643
+topk-tf-96      d       i       80      4       1000    1       100     0.0029320.210404        2.932e-05       0.00210404
+topk-tf-128     d       i       80      4       1000    1       100     0.0029210.210628        2.921e-05       0.00210628
+topk-tf-256     d       i       80      4       1000    1       100     0.0029270.210672        2.927e-05       0.00210672
+== Test with impl_tr
+topk-tr d       i       80      4       1000    1       100     0.002955       0.178619 2.955e-05       0.00178619
+
+--- Start a test: T=f IndexType=l 80 4 1000 1 100
+== Test with cpu-sorting
+sort    f       l       80      4       1000    1       100     0       1.5426 00.015426
+== Test with topk-cpu
+topk-cpu        f       l       80      4       1000    1       100     0      0.547638 0       0.00547638
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       1000    1       100     0.0028320.021045        2.832e-05       0.00021045
+== Test with impl_eigen
+topk-eigen      f       l       80      4       1000    1       100     0.002850.101869 2.85e-05        0.00101869
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     f       l       80      4       1000    1       100     0.0029330.229056        2.933e-05       0.00229056
+topk-tf-8       f       l       80      4       1000    1       100     0.0029330.228963        2.933e-05       0.00228963
+topk-tf-16      f       l       80      4       1000    1       100     0.0029350.228736        2.935e-05       0.00228736
+topk-tf-32      f       l       80      4       1000    1       100     0.0028930.228986        2.893e-05       0.00228986
+topk-tf-64      f       l       80      4       1000    1       100     0.0029130.228981        2.913e-05       0.00228981
+topk-tf-96      f       l       80      4       1000    1       100     0.0029230.228872        2.923e-05       0.00228872
+topk-tf-128     f       l       80      4       1000    1       100     0.0028840.228762        2.884e-05       0.00228762
+topk-tf-256     f       l       80      4       1000    1       100     0.0028830.229101        2.883e-05       0.00229101
+== Test with impl_tr
+topk-tr f       l       80      4       1000    1       100     0.002879       0.13581  2.879e-05       0.0013581
+
+--- Start a test: T=d IndexType=l 80 4 1000 1 100
+== Test with cpu-sorting
+sort    d       l       80      4       1000    1       100     0       1.4162 00.014162
+== Test with topk-cpu
+topk-cpu        d       l       80      4       1000    1       100     0      0.431106 0       0.00431106
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       1000    1       100     0.0029470.022676        2.947e-05       0.00022676
+== Test with impl_eigen
+topk-eigen      d       l       80      4       1000    1       100     0.0029720.128313        2.972e-05       0.00128313
+== Test with impl_tf, max-shard is 1000
+topk-tf-256     d       l       80      4       1000    1       100     0.0029950.236023        2.995e-05       0.00236023
+topk-tf-8       d       l       80      4       1000    1       100     0.0029860.236067        2.986e-05       0.00236067
+topk-tf-16      d       l       80      4       1000    1       100     0.0029950.236058        2.995e-05       0.00236058
+topk-tf-32      d       l       80      4       1000    1       100     0.003010.235753 3.01e-05        0.00235753
+topk-tf-64      d       l       80      4       1000    1       100     0.0029830.236038        2.983e-05       0.00236038
+topk-tf-96      d       l       80      4       1000    1       100     0.0029770.236033        2.977e-05       0.00236033
+topk-tf-128     d       l       80      4       1000    1       100     0.0029870.236053        2.987e-05       0.00236053
+topk-tf-256     d       l       80      4       1000    1       100     0.0029850.235815        2.985e-05       0.00235815
+== Test with impl_tr
+topk-tr d       l       80      4       1000    1       100     0.002987       0.179364 2.987e-05       0.00179364
+
+--- Start a test: T=f IndexType=i 80 4 1000 4 100
+== Test with cpu-sorting
+sort    f       i       80      4       1000    4       100     0       1.4708 00.014708
+== Test with topk-cpu
+topk-cpu        f       i       80      4       1000    4       100     0      0.506935 0       0.00506935
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       1000    4       100     0.0030730.016166        3.073e-05       0.00016166
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     f       i       80      4       1000    4       100     0.0030480.035041        3.048e-05       0.00035041
+topk-tf-8       f       i       80      4       1000    4       100     0.0030870.035128        3.087e-05       0.00035128
+topk-tf-16      f       i       80      4       1000    4       100     0.0030460.035113        3.046e-05       0.00035113
+topk-tf-32      f       i       80      4       1000    4       100     0.0030820.035141        3.082e-05       0.00035141
+topk-tf-64      f       i       80      4       1000    4       100     0.0030560.034872        3.056e-05       0.00034872
+topk-tf-96      f       i       80      4       1000    4       100     0.0030690.035126        3.069e-05       0.00035126
+topk-tf-128     f       i       80      4       1000    4       100     0.0030440.035112        3.044e-05       0.00035112
+== Test with impl_tr
+topk-tr f       i       80      4       1000    4       100     0.003132       0.148456 3.132e-05       0.00148456
+
+--- Start a test: T=d IndexType=i 80 4 1000 4 100
+== Test with cpu-sorting
+sort    d       i       80      4       1000    4       100     0       1.4941 00.014941
+== Test with topk-cpu
+topk-cpu        d       i       80      4       1000    4       100     0      0.5296   0       0.005296
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       1000    4       100     0.0032980.035557        3.298e-05       0.00035557
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     d       i       80      4       1000    4       100     0.0033130.066636        3.313e-05       0.00066636
+topk-tf-8       d       i       80      4       1000    4       100     0.0033080.066436        3.308e-05       0.00066436
+topk-tf-16      d       i       80      4       1000    4       100     0.0033870.066573        3.387e-05       0.00066573
+topk-tf-32      d       i       80      4       1000    4       100     0.0033550.066649        3.355e-05       0.00066649
+topk-tf-64      d       i       80      4       1000    4       100     0.0032820.066628        3.282e-05       0.00066628
+topk-tf-96      d       i       80      4       1000    4       100     0.0032810.066568        3.281e-05       0.00066568
+topk-tf-128     d       i       80      4       1000    4       100     0.0032820.066641        3.282e-05       0.00066641
+== Test with impl_tr
+topk-tr d       i       80      4       1000    4       100     0.003332       0.198482 3.332e-05       0.00198482
+
+--- Start a test: T=f IndexType=l 80 4 1000 4 100
+== Test with cpu-sorting
+sort    f       l       80      4       1000    4       100     0       1.554  00.01554
+== Test with topk-cpu
+topk-cpu        f       l       80      4       1000    4       100     0      0.555884 0       0.00555884
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       1000    4       100     0.0032760.041845        3.276e-05       0.00041845
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     f       l       80      4       1000    4       100     0.0032650.077479        3.265e-05       0.00077479
+topk-tf-8       f       l       80      4       1000    4       100     0.0032580.077511        3.258e-05       0.00077511
+topk-tf-16      f       l       80      4       1000    4       100     0.0032760.07738 3.276e-05       0.0007738
+topk-tf-32      f       l       80      4       1000    4       100     0.003290.077511 3.29e-05        0.00077511
+topk-tf-64      f       l       80      4       1000    4       100     0.0032870.077472        3.287e-05       0.00077472
+topk-tf-96      f       l       80      4       1000    4       100     0.0032790.077495        3.279e-05       0.00077495
+topk-tf-128     f       l       80      4       1000    4       100     0.003260.0775   3.26e-05        0.000775
+== Test with impl_tr
+topk-tr f       l       80      4       1000    4       100     0.003349       0.152129 3.349e-05       0.00152129
+
+--- Start a test: T=d IndexType=l 80 4 1000 4 100
+== Test with cpu-sorting
+sort    d       l       80      4       1000    4       100     0       1.4116 00.014116
+== Test with topk-cpu
+topk-cpu        d       l       80      4       1000    4       100     0      0.414911 0       0.00414911
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       1000    4       100     0.003490.040279 3.49e-05        0.00040279
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 250
+topk-tf-128     d       l       80      4       1000    4       100     0.0034560.075309        3.456e-05       0.00075309
+topk-tf-8       d       l       80      4       1000    4       100     0.0034660.075196        3.466e-05       0.00075196
+topk-tf-16      d       l       80      4       1000    4       100     0.003450.075318 3.45e-05        0.00075318
+topk-tf-32      d       l       80      4       1000    4       100     0.0034280.075321        3.428e-05       0.00075321
+topk-tf-64      d       l       80      4       1000    4       100     0.0034530.075294        3.453e-05       0.00075294
+topk-tf-96      d       l       80      4       1000    4       100     0.0034730.075317        3.473e-05       0.00075317
+topk-tf-128     d       l       80      4       1000    4       100     0.0034710.075023        3.471e-05       0.00075023
+== Test with impl_tr
+topk-tr d       l       80      4       1000    4       100     0.003619       0.203265 3.619e-05       0.00203265
+
+--- Start a test: T=f IndexType=i 80 4 1000 16 100
+== Test with cpu-sorting
+sort    f       i       80      4       1000    16      100     0       1.5162 00.015162
+== Test with topk-cpu
+topk-cpu        f       i       80      4       1000    16      100     0      0.523847 0       0.00523847
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       1000    16      100     0.0041160.044897        4.116e-05       0.00044897
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      f       i       80      4       1000    16      100     0.0041480.072405        4.148e-05       0.00072405
+topk-tf-8       f       i       80      4       1000    16      100     0.0041480.072519        4.148e-05       0.00072519
+topk-tf-16      f       i       80      4       1000    16      100     0.0041560.07264 4.156e-05       0.0007264
+topk-tf-32      f       i       80      4       1000    16      100     0.0041660.072628        4.166e-05       0.00072628
+== Test with impl_tr
+topk-tr f       i       80      4       1000    16      100     0.004189       0.157167 4.189e-05       0.00157167
+
+--- Start a test: T=d IndexType=i 80 4 1000 16 100
+== Test with cpu-sorting
+sort    d       i       80      4       1000    16      100     0       1.5437 00.015437
+== Test with topk-cpu
+topk-cpu        d       i       80      4       1000    16      100     0      0.544938 0       0.00544938
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       1000    16      100     0.0049640.094204        4.964e-05       0.00094204
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      d       i       80      4       1000    16      100     0.0050090.145953        5.009e-05       0.00145953
+topk-tf-8       d       i       80      4       1000    16      100     0.0050390.146058        5.039e-05       0.00146058
+topk-tf-16      d       i       80      4       1000    16      100     0.0050270.146023        5.027e-05       0.00146023
+topk-tf-32      d       i       80      4       1000    16      100     0.0050070.146   5.007e-05       0.00146
+== Test with impl_tr
+topk-tr d       i       80      4       1000    16      100     0.005047       0.208396 5.047e-05       0.00208396
+
+--- Start a test: T=f IndexType=l 80 4 1000 16 100
+== Test with cpu-sorting
+sort    f       l       80      4       1000    16      100     0       1.5854 00.015854
+== Test with topk-cpu
+topk-cpu        f       l       80      4       1000    16      100     0      0.564269 0       0.00564269
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       1000    16      100     0.0050040.11963 5.004e-05       0.0011963
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      f       l       80      4       1000    16      100     0.0050140.18762 5.014e-05       0.0018762
+topk-tf-8       f       l       80      4       1000    16      100     0.0049960.187486        4.996e-05       0.00187486
+topk-tf-16      f       l       80      4       1000    16      100     0.0050010.187672        5.001e-05       0.00187672
+topk-tf-32      f       l       80      4       1000    16      100     0.0049960.187699        4.996e-05       0.00187699
+== Test with impl_tr
+topk-tr f       l       80      4       1000    16      100     0.005007       0.159066 5.007e-05       0.00159066
+
+--- Start a test: T=d IndexType=l 80 4 1000 16 100
+== Test with cpu-sorting
+sort    d       l       80      4       1000    16      100     0       1.4453 00.014453
+== Test with topk-cpu
+topk-cpu        d       l       80      4       1000    16      100     0      0.418231 0       0.00418231
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       1000    16      100     0.0055960.105179        5.596e-05       0.00105179
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 62
+topk-tf-31      d       l       80      4       1000    16      100     0.0056420.165953        5.642e-05       0.00165953
+topk-tf-8       d       l       80      4       1000    16      100     0.0056830.165986        5.683e-05       0.00165986
+topk-tf-16      d       l       80      4       1000    16      100     0.0056670.165869        5.667e-05       0.00165869
+topk-tf-32      d       l       80      4       1000    16      100     0.0056740.165869        5.674e-05       0.00165869
+== Test with impl_tr
+topk-tr d       l       80      4       1000    16      100     0.005655       0.210781 5.655e-05       0.00210781
+
+--- Start a test: T=f IndexType=i 80 4 1000 32 100
+== Test with cpu-sorting
+sort    f       i       80      4       1000    32      100     0       1.5738 00.015738
+== Test with topk-cpu
+topk-cpu        f       i       80      4       1000    32      100     0      0.535116 0       0.00535116
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       1000    32      100     0.0057270.16126 5.727e-05       0.0016126
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      f       i       80      4       1000    32      100     0.0057450.117602        5.745e-05       0.00117602
+topk-tf-8       f       i       80      4       1000    32      100     0.0057030.117837        5.703e-05       0.00117837
+topk-tf-16      f       i       80      4       1000    32      100     0.0057210.117722        5.721e-05       0.00117722
+== Test with impl_tr
+topk-tr f       i       80      4       1000    32      100     0.005734       0.161237 5.734e-05       0.00161237
+
+--- Start a test: T=d IndexType=i 80 4 1000 32 100
+== Test with cpu-sorting
+sort    d       i       80      4       1000    32      100     0       1.5966 00.015966
+== Test with topk-cpu
+topk-cpu        d       i       80      4       1000    32      100     0      0.548286 0       0.00548286
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       1000    32      100     0.0072360.210181        7.236e-05       0.00210181
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      d       i       80      4       1000    32      100     0.0072170.249152        7.217e-05       0.00249152
+topk-tf-8       d       i       80      4       1000    32      100     0.0072210.249042        7.221e-05       0.00249042
+topk-tf-16      d       i       80      4       1000    32      100     0.0072530.24894 7.253e-05       0.0024894
+== Test with impl_tr
+topk-tr d       i       80      4       1000    32      100     0.007252       0.2102   7.252e-05       0.002102
+
+--- Start a test: T=f IndexType=l 80 4 1000 32 100
+== Test with cpu-sorting
+sort    f       l       80      4       1000    32      100     0       1.6541 00.016541
+== Test with topk-cpu
+topk-cpu        f       l       80      4       1000    32      100     0      0.57236  0       0.0057236
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       1000    32      100     0.0069880.162534        6.988e-05       0.00162534
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      f       l       80      4       1000    32      100     0.0070440.323337        7.044e-05       0.00323337
+topk-tf-8       f       l       80      4       1000    32      100     0.0069990.323447        6.999e-05       0.00323447
+topk-tf-16      f       l       80      4       1000    32      100     0.0070380.323106        7.038e-05       0.00323106
+== Test with impl_tr
+topk-tr f       l       80      4       1000    32      100     0.006986       0.162694 6.986e-05       0.00162694
+
+--- Start a test: T=d IndexType=l 80 4 1000 32 100
+== Test with cpu-sorting
+sort    d       l       80      4       1000    32      100     0       1.5128 00.015128
+== Test with topk-cpu
+topk-cpu        d       l       80      4       1000    32      100     0      0.433392 0       0.00433392
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       1000    32      100     0.0086930.21492 8.693e-05       0.0021492
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 31
+topk-tf-15      d       l       80      4       1000    32      100     0.0087080.281151        8.708e-05       0.00281151
+topk-tf-8       d       l       80      4       1000    32      100     0.0088220.281031        8.822e-05       0.00281031
+topk-tf-16      d       l       80      4       1000    32      100     0.0086830.281134        8.683e-05       0.00281134
+== Test with impl_tr
+topk-tr d       l       80      4       1000    32      100     0.008636       0.215103 8.636e-05       0.00215103
+
+--- Start a test: T=f IndexType=i 80 4 1000 64 100
+== Test with cpu-sorting
+sort    f       i       80      4       1000    64      100     0       1.6794 00.016794
+== Test with topk-cpu
+topk-cpu        f       i       80      4       1000    64      100     0      0.535273 0       0.00535273
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       1000    64      100     0.0086220.160109        8.622e-05       0.00160109
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       f       i       80      4       1000    64      100     0.0086210.202676        8.621e-05       0.00202676
+topk-tf-8       f       i       80      4       1000    64      100     0.0086160.202878        8.616e-05       0.00202878
+== Test with impl_tr
+topk-tr f       i       80      4       1000    64      100     0.008639       0.160021 8.639e-05       0.00160021
+
+--- Start a test: T=d IndexType=i 80 4 1000 64 100
+== Test with cpu-sorting
+sort    d       i       80      4       1000    64      100     0       1.6724 00.016724
+== Test with topk-cpu
+topk-cpu        d       i       80      4       1000    64      100     0      0.565739 0       0.00565739
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       1000    64      100     0.0114220.214   0.00011422      0.00214
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       d       i       80      4       1000    64      100     0.0114720.422685        0.00011472      0.00422685
+topk-tf-8       d       i       80      4       1000    64      100     0.0114720.422508        0.00011472      0.00422508
+== Test with impl_tr
+topk-tr d       i       80      4       1000    64      100     0.011451       0.213952 0.00011451      0.00213952
+
+--- Start a test: T=f IndexType=l 80 4 1000 64 100
+== Test with cpu-sorting
+sort    f       l       80      4       1000    64      100     0       1.7399 00.017399
+== Test with topk-cpu
+topk-cpu        f       l       80      4       1000    64      100     0      0.589296 0       0.00589296
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       1000    64      100     0.0115520.162172        0.00011552      0.00162172
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       f       l       80      4       1000    64      100     0.0116170.546255        0.00011617      0.00546255
+topk-tf-8       f       l       80      4       1000    64      100     0.0115860.545931        0.00011586      0.00545931
+== Test with impl_tr
+topk-tr f       l       80      4       1000    64      100     0.011523       0.162132 0.00011523      0.00162132
+
+--- Start a test: T=d IndexType=l 80 4 1000 64 100
+== Test with cpu-sorting
+sort    d       l       80      4       1000    64      100     0       1.611  00.01611
+== Test with topk-cpu
+topk-cpu        d       l       80      4       1000    64      100     0      0.452984 0       0.00452984
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       1000    64      100     0.0141550.214822        0.00014155      0.00214822
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 15
+topk-tf-8       d       l       80      4       1000    64      100     0.0141390.476687        0.00014139      0.00476687
+topk-tf-8       d       l       80      4       1000    64      100     0.0141820.476589        0.00014182      0.00476589
+== Test with impl_tr
+topk-tr d       l       80      4       1000    64      100     0.014232       0.214655 0.00014232      0.00214655
+
+--- Start a test: T=f IndexType=i 80 4 30000 1 100
+== Test with cpu-sorting
+sort    f       i       80      4       30000   1       100     0       61.103100.611031
+== Test with topk-cpu
+topk-cpu        f       i       80      4       30000   1       100     0      14.6358  0       0.146358
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       30000   1       100     0.0027990.064777        2.799e-05       0.00064777
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       i       80      4       30000   1       100     0.0035570.259908        3.557e-05       0.00259908
+topk-tf-8       f       i       80      4       30000   1       100     0.002910.260019 2.91e-05        0.00260019
+topk-tf-16      f       i       80      4       30000   1       100     0.0029310.259963        2.931e-05       0.00259963
+topk-tf-32      f       i       80      4       30000   1       100     0.0029290.259876        2.929e-05       0.00259876
+topk-tf-64      f       i       80      4       30000   1       100     0.0029290.259746        2.929e-05       0.00259746
+topk-tf-96      f       i       80      4       30000   1       100     0.0029360.259927        2.936e-05       0.00259927
+topk-tf-128     f       i       80      4       30000   1       100     0.0029040.260021        2.904e-05       0.00260021
+topk-tf-256     f       i       80      4       30000   1       100     0.0029180.259869        2.918e-05       0.00259869
+== Test with impl_tr
+topk-tr f       i       80      4       30000   1       100     0.002982       1.03365  2.982e-05       0.0103365
+
+--- Start a test: T=d IndexType=i 80 4 30000 1 100
+== Test with cpu-sorting
+sort    d       i       80      4       30000   1       100     0       62.151600.621516
+== Test with topk-cpu
+topk-cpu        d       i       80      4       30000   1       100     0      15.6394  0       0.156394
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       30000   1       100     0.0029360.117692        2.936e-05       0.00117692
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     d       i       80      4       30000   1       100     0.0029730.304239        2.973e-05       0.00304239
+topk-tf-8       d       i       80      4       30000   1       100     0.0029420.304528        2.942e-05       0.00304528
+topk-tf-16      d       i       80      4       30000   1       100     0.0029470.304083        2.947e-05       0.00304083
+topk-tf-32      d       i       80      4       30000   1       100     0.0029670.304414        2.967e-05       0.00304414
+topk-tf-64      d       i       80      4       30000   1       100     0.0029460.304363        2.946e-05       0.00304363
+topk-tf-96      d       i       80      4       30000   1       100     0.0029420.304291        2.942e-05       0.00304291
+topk-tf-128     d       i       80      4       30000   1       100     0.0029760.30435 2.976e-05       0.0030435
+topk-tf-256     d       i       80      4       30000   1       100     0.0029440.304468        2.944e-05       0.00304468
+== Test with impl_tr
+topk-tr d       i       80      4       30000   1       100     0.003034       1.64601  3.034e-05       0.0164601
+
+--- Start a test: T=f IndexType=l 80 4 30000 1 100
+== Test with cpu-sorting
+sort    f       l       80      4       30000   1       100     0       65.000500.650005
+== Test with topk-cpu
+topk-cpu        f       l       80      4       30000   1       100     0      15.9289  0       0.159289
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       30000   1       100     0.0028970.067484        2.897e-05       0.00067484
+== Test with impl_eigen
+topk-eigen      f       l       80      4       30000   1       100     0.0030483.47368 3.048e-05       0.0347368
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       l       80      4       30000   1       100     0.0029490.285611        2.949e-05       0.00285611
+topk-tf-8       f       l       80      4       30000   1       100     0.0029360.28574 2.936e-05       0.0028574
+topk-tf-16      f       l       80      4       30000   1       100     0.0029480.285341        2.948e-05       0.00285341
+topk-tf-32      f       l       80      4       30000   1       100     0.0029360.28566 2.936e-05       0.0028566
+topk-tf-64      f       l       80      4       30000   1       100     0.0029670.285505        2.967e-05       0.00285505
+topk-tf-96      f       l       80      4       30000   1       100     0.002930.285453 2.93e-05        0.00285453
+topk-tf-128     f       l       80      4       30000   1       100     0.0029620.285576        2.962e-05       0.00285576
+topk-tf-256     f       l       80      4       30000   1       100     0.0030080.28572 3.008e-05       0.0028572
+== Test with impl_tr
+topk-tr f       l       80      4       30000   1       100     0.002975       1.04977  2.975e-05       0.0104977
+
+--- Start a test: T=d IndexType=l 80 4 30000 1 100
+== Test with cpu-sorting
+sort    d       l       80      4       30000   1       100     0       59.967800.599678
+== Test with topk-cpu
+topk-cpu        d       l       80      4       30000   1       100     0      12.6067  0       0.126067
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       30000   1       100     0.0029930.119545        2.993e-05       0.00119545
+== Test with impl_eigen
+topk-eigen      d       l       80      4       30000   1       100     0.0030773.84353 3.077e-05       0.0384353
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     d       l       80      4       30000   1       100     0.003020.32909  3.02e-05        0.0032909
+topk-tf-8       d       l       80      4       30000   1       100     0.0030460.328956        3.046e-05       0.00328956
+topk-tf-16      d       l       80      4       30000   1       100     0.0030130.329275        3.013e-05       0.00329275
+topk-tf-32      d       l       80      4       30000   1       100     0.0029820.329103        2.982e-05       0.00329103
+topk-tf-64      d       l       80      4       30000   1       100     0.0029890.328953        2.989e-05       0.00328953
+topk-tf-96      d       l       80      4       30000   1       100     0.0029960.329269        2.996e-05       0.00329269
+topk-tf-128     d       l       80      4       30000   1       100     0.0029940.329141        2.994e-05       0.00329141
+topk-tf-256     d       l       80      4       30000   1       100     0.0030080.328956        3.008e-05       0.00328956
+== Test with impl_tr
+topk-tr d       l       80      4       30000   1       100     0.003036       1.80005  3.036e-05       0.0180006
+
+--- Start a test: T=f IndexType=i 80 4 30000 4 100
+== Test with cpu-sorting
+sort    f       i       80      4       30000   4       100     0       61.069800.610698
+== Test with topk-cpu
+topk-cpu        f       i       80      4       30000   4       100     0      14.4733  0       0.144733
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       30000   4       100     0.0031580.151198        3.158e-05       0.00151198
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 1024
+topk-tf-256     f       i       80      4       30000   4       100     0.0032260.622396        3.226e-05       0.00622396
+topk-tf-8       f       i       80      4       30000   4       100     0.0032220.622401        3.222e-05       0.00622401
+topk-tf-16      f       i       80      4       30000   4       100     0.0032130.622583        3.213e-05       0.00622583
+topk-tf-32      f       i       80      4       30000   4       100     0.0032160.622262        3.216e-05       0.00622262
+topk-tf-64      f       i       80      4       30000   4       100     0.003230.622363 3.23e-05        0.00622363
+topk-tf-96      f       i       80      4       30000   4       100     0.0031910.622694        3.191e-05       0.00622694
+topk-tf-128     f       i       80      4       30000   4       100     0.0032360.622354        3.236e-05       0.00622354
+topk-tf-256     f       i       80      4       30000   4       100     0.0031950.622539        3.195e-05       0.00622539
+== Test with impl_tr
+topk-tr f       i       80      4       30000   4       100     0.003207       1.13467  3.207e-05       0.0113467
+
+--- Start a test: T=d IndexType=i 80 4 30000 4 100
+== Test with cpu-sorting
+sort    d       i       80      4       30000   4       100     0       63.391600.633916
+== Test with topk-cpu
+topk-cpu        d       i       80      4       30000   4       100     0      15.4432  0       0.154432
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       30000   4       100     0.003340.270341 3.34e-05        0.00270341
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     d       i       80      4       30000   4       100     0.0034120.608486        3.412e-05       0.00608486
+topk-tf-8       d       i       80      4       30000   4       100     0.003420.608728 3.42e-05        0.00608728
+topk-tf-16      d       i       80      4       30000   4       100     0.0033690.608505        3.369e-05       0.00608505
+topk-tf-32      d       i       80      4       30000   4       100     0.0033750.608686        3.375e-05       0.00608686
+topk-tf-64      d       i       80      4       30000   4       100     0.0033420.608611        3.342e-05       0.00608611
+topk-tf-96      d       i       80      4       30000   4       100     0.0033990.608604        3.399e-05       0.00608604
+topk-tf-128     d       i       80      4       30000   4       100     0.0033890.608825        3.389e-05       0.00608825
+topk-tf-256     d       i       80      4       30000   4       100     0.0033810.608641        3.381e-05       0.00608641
+== Test with impl_tr
+topk-tr d       i       80      4       30000   4       100     0.003391       1.79187  3.391e-05       0.0179187
+
+--- Start a test: T=f IndexType=l 80 4 30000 4 100
+== Test with cpu-sorting
+sort    f       l       80      4       30000   4       100     0       64.636800.646368
+== Test with topk-cpu
+topk-cpu        f       l       80      4       30000   4       100     0      16.1325  0       0.161325
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       30000   4       100     0.0033830.315529        3.383e-05       0.00315529
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     f       l       80      4       30000   4       100     0.0033780.693537        3.378e-05       0.00693537
+topk-tf-8       f       l       80      4       30000   4       100     0.0033660.693381        3.366e-05       0.00693381
+topk-tf-16      f       l       80      4       30000   4       100     0.0033790.69327 3.379e-05       0.0069327
+topk-tf-32      f       l       80      4       30000   4       100     0.0033690.693609        3.369e-05       0.00693609
+topk-tf-64      f       l       80      4       30000   4       100     0.003380.693229 3.38e-05        0.00693229
+topk-tf-96      f       l       80      4       30000   4       100     0.003390.693526 3.39e-05        0.00693526
+topk-tf-128     f       l       80      4       30000   4       100     0.0033790.693277        3.379e-05       0.00693277
+topk-tf-256     f       l       80      4       30000   4       100     0.0033940.693593        3.394e-05       0.00693593
+== Test with impl_tr
+topk-tr f       l       80      4       30000   4       100     0.003376       1.13733  3.376e-05       0.0113733
+
+--- Start a test: T=d IndexType=l 80 4 30000 4 100
+== Test with cpu-sorting
+sort    d       l       80      4       30000   4       100     0       60.451500.604515
+== Test with topk-cpu
+topk-cpu        d       l       80      4       30000   4       100     0      12.3391  0       0.123391
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       30000   4       100     0.0035260.305293        3.526e-05       0.00305293
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 767
+topk-tf-192     d       l       80      4       30000   4       100     0.0035290.677056        3.529e-05       0.00677056
+topk-tf-8       d       l       80      4       30000   4       100     0.0035460.677109        3.546e-05       0.00677109
+topk-tf-16      d       l       80      4       30000   4       100     0.0035350.676981        3.535e-05       0.00676981
+topk-tf-32      d       l       80      4       30000   4       100     0.0035250.67729 3.525e-05       0.0067729
+topk-tf-64      d       l       80      4       30000   4       100     0.0035560.677136        3.556e-05       0.00677136
+topk-tf-96      d       l       80      4       30000   4       100     0.0035360.676998        3.536e-05       0.00676998
+topk-tf-128     d       l       80      4       30000   4       100     0.0035330.677351        3.533e-05       0.00677351
+topk-tf-256     d       l       80      4       30000   4       100     0.0035340.677   3.534e-05       0.00677
+== Test with impl_tr
+topk-tr d       l       80      4       30000   4       100     0.003598       1.96984  3.598e-05       0.0196984
+
+--- Start a test: T=f IndexType=i 80 4 30000 16 100
+== Test with cpu-sorting
+sort    f       i       80      4       30000   16      100     0       61.409500.614095
+== Test with topk-cpu
+Check unequal of numbers of 1
+topk-cpu        f       i       80      4       30000   16      100     0      14.6875  0       0.146875
+== Test with topk-gpu
+Check unequal of numbers of 1
+topk-gpu(auto)  f       i       80      4       30000   16      100     0.0043360.904498        4.336e-05       0.00904498
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 383
+Check unequal of numbers of 1
+topk-tf-128     f       i       80      4       30000   16      100     0.0043091.1413  4.309e-05       0.011413
+Check unequal of numbers of 1
+topk-tf-8       f       i       80      4       30000   16      100     0.0043831.1411  4.383e-05       0.011411
+Check unequal of numbers of 1
+topk-tf-16      f       i       80      4       30000   16      100     0.0043691.1409  4.369e-05       0.011409
+Check unequal of numbers of 1
+topk-tf-32      f       i       80      4       30000   16      100     0.0043341.14098 4.334e-05       0.0114098
+Check unequal of numbers of 1
+topk-tf-64      f       i       80      4       30000   16      100     0.0043291.14111 4.329e-05       0.0114111
+Check unequal of numbers of 1
+topk-tf-96      f       i       80      4       30000   16      100     0.0043411.14119 4.341e-05       0.0114119
+Check unequal of numbers of 1
+topk-tf-128     f       i       80      4       30000   16      100     0.0043191.14131 4.319e-05       0.0114131
+Check unequal of numbers of 1
+topk-tf-256     f       i       80      4       30000   16      100     0.0043221.14145 4.322e-05       0.0114145
+== Test with impl_tr
+Check unequal of numbers of 1
+topk-tr f       i       80      4       30000   16      100     0.004327       1.17688  4.327e-05       0.0117688
+
+--- Start a test: T=d IndexType=i 80 4 30000 16 100
+== Test with cpu-sorting
+sort    d       i       80      4       30000   16      100     0       62.169900.621699
+== Test with topk-cpu
+topk-cpu        d       i       80      4       30000   16      100     0      15.6155  0       0.156155
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       30000   16      100     0.0051232.37314 5.123e-05       0.0237314
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      d       i       80      4       30000   16      100     0.0050611.68121 5.061e-05       0.0168121
+topk-tf-8       d       i       80      4       30000   16      100     0.0050821.68114 5.082e-05       0.0168114
+topk-tf-16      d       i       80      4       30000   16      100     0.0050641.68097 5.064e-05       0.0168097
+topk-tf-32      d       i       80      4       30000   16      100     0.0051011.68121 5.101e-05       0.0168121
+topk-tf-64      d       i       80      4       30000   16      100     0.0050581.68115 5.058e-05       0.0168115
+topk-tf-96      d       i       80      4       30000   16      100     0.0050721.68103 5.072e-05       0.0168103
+topk-tf-128     d       i       80      4       30000   16      100     0.0051431.68111 5.143e-05       0.0168111
+== Test with impl_tr
+topk-tr d       i       80      4       30000   16      100     0.005065       1.84652  5.065e-05       0.0184652
+
+--- Start a test: T=f IndexType=l 80 4 30000 16 100
+== Test with cpu-sorting
+sort    f       l       80      4       30000   16      100     0       64.705200.647052
+== Test with topk-cpu
+topk-cpu        f       l       80      4       30000   16      100     0      16.115   0       0.16115
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       30000   16      100     0.0050512.96489 5.051e-05       0.0296489
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      f       l       80      4       30000   16      100     0.0050422.09837 5.042e-05       0.0209837
+topk-tf-8       f       l       80      4       30000   16      100     0.0050962.09826 5.096e-05       0.0209826
+topk-tf-16      f       l       80      4       30000   16      100     0.005132.09847  5.13e-05        0.0209847
+topk-tf-32      f       l       80      4       30000   16      100     0.0050952.09796 5.095e-05       0.0209796
+topk-tf-64      f       l       80      4       30000   16      100     0.0050372.09827 5.037e-05       0.0209827
+topk-tf-96      f       l       80      4       30000   16      100     0.0050362.09811 5.036e-05       0.0209811
+topk-tf-128     f       l       80      4       30000   16      100     0.0050432.09821 5.043e-05       0.0209821
+== Test with impl_tr
+topk-tr f       l       80      4       30000   16      100     0.005042       1.17286  5.042e-05       0.0117286
+
+--- Start a test: T=d IndexType=l 80 4 30000 16 100
+== Test with cpu-sorting
+sort    d       l       80      4       30000   16      100     0       60.103200.601032
+== Test with topk-cpu
+topk-cpu        d       l       80      4       30000   16      100     0      12.1965  0       0.121965
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       30000   16      100     0.0058472.65675 5.847e-05       0.0265675
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      d       l       80      4       30000   16      100     0.0058271.86686 5.827e-05       0.0186686
+topk-tf-8       d       l       80      4       30000   16      100     0.0058561.86693 5.856e-05       0.0186693
+topk-tf-16      d       l       80      4       30000   16      100     0.0058361.86678 5.836e-05       0.0186678
+topk-tf-32      d       l       80      4       30000   16      100     0.0058511.86687 5.851e-05       0.0186687
+topk-tf-64      d       l       80      4       30000   16      100     0.0058111.86714 5.811e-05       0.0186714
+topk-tf-96      d       l       80      4       30000   16      100     0.0058121.86683 5.812e-05       0.0186683
+topk-tf-128     d       l       80      4       30000   16      100     0.0058621.86709 5.862e-05       0.0186709
+== Test with impl_tr
+topk-tr d       l       80      4       30000   16      100     0.00585 2.049595.85e-05 0.0204959
+
+--- Start a test: T=f IndexType=i 80 4 30000 32 100
+== Test with cpu-sorting
+sort    f       i       80      4       30000   32      100     0       61.126 00.61126
+== Test with topk-cpu
+topk-cpu        f       i       80      4       30000   32      100     0      14.7189  0       0.147189
+== Test with topk-gpu
+topk-gpu(auto)  f       i       80      4       30000   32      100     0.0058281.18803 5.828e-05       0.0118803
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 191
+topk-tf-96      f       i       80      4       30000   32      100     0.005752.26288  5.75e-05        0.0226288
+topk-tf-8       f       i       80      4       30000   32      100     0.005752.26289  5.75e-05        0.0226289
+topk-tf-16      f       i       80      4       30000   32      100     0.0057662.26249 5.766e-05       0.0226249
+topk-tf-32      f       i       80      4       30000   32      100     0.0057762.26249 5.776e-05       0.0226249
+topk-tf-64      f       i       80      4       30000   32      100     0.0057652.26281 5.765e-05       0.0226281
+topk-tf-96      f       i       80      4       30000   32      100     0.0057752.26252 5.775e-05       0.0226252
+topk-tf-128     f       i       80      4       30000   32      100     0.0057782.26246 5.778e-05       0.0226246
+== Test with impl_tr
+topk-tr f       i       80      4       30000   32      100     0.005767       1.1882   5.767e-05       0.011882
+
+--- Start a test: T=d IndexType=i 80 4 30000 32 100
+== Test with cpu-sorting
+sort    d       i       80      4       30000   32      100     0       62.176500.621765
+== Test with topk-cpu
+topk-cpu        d       i       80      4       30000   32      100     0      15.5093  0       0.155093
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       30000   32      100     0.0073171.88871 7.317e-05       0.0188871
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      d       i       80      4       30000   32      100     0.0073593.67636 7.359e-05       0.0367636
+topk-tf-8       d       i       80      4       30000   32      100     0.0073493.67651 7.349e-05       0.0367651
+topk-tf-16      d       i       80      4       30000   32      100     0.0073783.67625 7.378e-05       0.0367625
+topk-tf-32      d       i       80      4       30000   32      100     0.0073333.67664 7.333e-05       0.0367664
+topk-tf-64      d       i       80      4       30000   32      100     0.0073863.6765  7.386e-05       0.036765
+== Test with impl_tr
+topk-tr d       i       80      4       30000   32      100     0.007298       1.88686  7.298e-05       0.0188686
+
+--- Start a test: T=f IndexType=l 80 4 30000 32 100
+== Test with cpu-sorting
+sort    f       l       80      4       30000   32      100     0       64.778400.647784
+== Test with topk-cpu
+topk-cpu        f       l       80      4       30000   32      100     0      15.8306  0       0.158306
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       30000   32      100     0.0100491.19507 0.00010049      0.0119507
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      f       l       80      4       30000   32      100     0.0072854.64103 7.285e-05       0.0464103
+topk-tf-8       f       l       80      4       30000   32      100     0.0071694.64157 7.169e-05       0.0464157
+topk-tf-16      f       l       80      4       30000   32      100     0.0072964.64167 7.296e-05       0.0464167
+topk-tf-32      f       l       80      4       30000   32      100     0.007284.64147  7.28e-05        0.0464147
+topk-tf-64      f       l       80      4       30000   32      100     0.0072634.64159 7.263e-05       0.0464159
+== Test with impl_tr
+topk-tr f       l       80      4       30000   32      100     0.007114       1.19487  7.114e-05       0.0119487
+
+--- Start a test: T=d IndexType=l 80 4 30000 32 100
+== Test with cpu-sorting
+sort    d       l       80      4       30000   32      100     0       60.056400.600564
+== Test with topk-cpu
+topk-cpu        d       l       80      4       30000   32      100     0      12.1706  0       0.121706
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       30000   32      100     0.008772.07405  8.77e-05        0.0207405
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+topk-tf-32      d       l       80      4       30000   32      100     0.008774.05756  8.77e-05        0.0405756
+topk-tf-8       d       l       80      4       30000   32      100     0.0087974.05781 8.797e-05       0.0405781
+topk-tf-16      d       l       80      4       30000   32      100     0.0087434.05808 8.743e-05       0.0405808
+topk-tf-32      d       l       80      4       30000   32      100     0.0087644.05789 8.764e-05       0.0405789
+topk-tf-64      d       l       80      4       30000   32      100     0.0087534.05783 8.753e-05       0.0405783
+== Test with impl_tr
+topk-tr d       l       80      4       30000   32      100     0.008753       2.07568  8.753e-05       0.0207568
+
+--- Start a test: T=f IndexType=i 80 4 30000 64 100
+== Test with cpu-sorting
+sort    f       i       80      4       30000   64      100     0       61.248400.612484
+== Test with topk-cpu
+topk-cpu        f       i       80      4       30000   64      100     0      14.6283  0       0.146283
+== Test with topk-gpu
+Check unequal of numbers of 1
+topk-gpu(auto)  f       i       80      4       30000   64      100     0.0085491.20521 8.549e-05       0.0120521
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 95
+Check unequal of numbers of 1
+topk-tf-32      f       i       80      4       30000   64      100     0.0086114.63689 8.611e-05       0.0463689
+Check unequal of numbers of 1
+topk-tf-8       f       i       80      4       30000   64      100     0.0085814.63685 8.581e-05       0.0463685
+Check unequal of numbers of 1
+topk-tf-16      f       i       80      4       30000   64      100     0.0086544.63673 8.654e-05       0.0463673
+Check unequal of numbers of 1
+topk-tf-32      f       i       80      4       30000   64      100     0.0085924.63689 8.592e-05       0.0463689
+Check unequal of numbers of 1
+topk-tf-64      f       i       80      4       30000   64      100     0.0085884.63668 8.588e-05       0.0463668
+== Test with impl_tr
+Check unequal of numbers of 1
+topk-tr f       i       80      4       30000   64      100     0.008607       1.2054   8.607e-05       0.012054
+
+--- Start a test: T=d IndexType=i 80 4 30000 64 100
+== Test with cpu-sorting
+sort    d       i       80      4       30000   64      100     0       62.572100.625721
+== Test with topk-cpu
+topk-cpu        d       i       80      4       30000   64      100     0      15.304   0       0.15304
+== Test with topk-gpu
+topk-gpu(auto)  d       i       80      4       30000   64      100     0.0113371.91709 0.00011337      0.0191709
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      d       i       80      4       30000   64      100     0.0114678.22663 0.00011467      0.0822663
+topk-tf-8       d       i       80      4       30000   64      100     0.0113788.22674 0.00011378      0.0822674
+topk-tf-16      d       i       80      4       30000   64      100     0.0114218.22646 0.00011421      0.0822646
+topk-tf-32      d       i       80      4       30000   64      100     0.0114328.22653 0.00011432      0.0822653
+== Test with impl_tr
+topk-tr d       i       80      4       30000   64      100     0.011355       1.91727  0.00011355      0.0191727
+
+--- Start a test: T=f IndexType=l 80 4 30000 64 100
+== Test with cpu-sorting
+sort    f       l       80      4       30000   64      100     0       64.923 00.64923
+== Test with topk-cpu
+topk-cpu        f       l       80      4       30000   64      100     0      16.2616  0       0.162616
+== Test with topk-gpu
+topk-gpu(auto)  f       l       80      4       30000   64      100     0.0116351.22179 0.00011635      0.0122179
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      f       l       80      4       30000   64      100     0.01221310.4292 0.00012213      0.104292
+topk-tf-8       f       l       80      4       30000   64      100     0.01172110.429  0.00011721      0.10429
+topk-tf-16      f       l       80      4       30000   64      100     0.01169310.4296 0.00011693      0.104296
+topk-tf-32      f       l       80      4       30000   64      100     0.01172110.429  0.00011721      0.10429
+== Test with impl_tr
+topk-tr f       l       80      4       30000   64      100     0.011599       1.22149  0.00011599      0.0122149
+
+--- Start a test: T=d IndexType=l 80 4 30000 64 100
+== Test with cpu-sorting
+sort    d       l       80      4       30000   64      100     0       60.370300.603703
+== Test with topk-cpu
+topk-cpu        d       l       80      4       30000   64      100     0      12.5111  0       0.125111
+== Test with topk-gpu
+topk-gpu(auto)  d       l       80      4       30000   64      100     0.0142612.08223 0.00014261      0.0208223
+== Test with impl_eigen
+error
+== Test with impl_tf, max-shard is 47
+topk-tf-23      d       l       80      4       30000   64      100     0.0143839.00368 0.00014383      0.0900368
+topk-tf-8       d       l       80      4       30000   64      100     0.0144199.00409 0.00014419      0.0900409
+topk-tf-16      d       l       80      4       30000   64      100     0.0142929.00367 0.00014292      0.0900367
+topk-tf-32      d       l       80      4       30000   64      100     0.0143589.00469 0.00014358      0.0900469
+== Test with impl_tr
+topk-tr d       l       80      4       30000   64      100     0.014365       2.08354  0.00014365      0.0208354
+
